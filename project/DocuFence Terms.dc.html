@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/lucide@0.475.0/dist/umd/lucide.min.js"></script>
+<style>
+  body { margin: 0; background: #F8F9FA; -webkit-font-smoothing: antialiased; }
+  a { color: #0F6F8A; text-decoration: none; }
+  a:hover { color: #0E2433; }
+  @keyframes df-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+</style>
+</helmet>
+
+<div style="font-family: Archivo, 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #0E2433; background: #F8F9FA; overflow-x: hidden;">
+
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(248,249,250,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(14,36,51,0.10);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 28px;">
+      <a href="DocuFence Homepage.dc.html" style="display: flex; align-items: center; gap: 10px; color: #0E2433;">
+        <span style="width: 13px; height: 13px; background: #15A8CE;"></span>
+        <span style="font-size: 21px; letter-spacing: -0.01em;">DocuFence</span>
+      </a>
+      <nav style="display: flex; align-items: center; gap: 24px; font-size: 15px; color: #3F5462; white-space: nowrap; min-width: 0;">
+        <a href="DocuFence Product.dc.html" style="color: #3F5462;">Product</a>
+        <span onMouseEnter="{{ openMenu }}" onMouseLeave="{{ closeMenu }}" style="position: relative; display: inline-flex; align-items: center; gap: 6px; cursor: default; color: #0E2433;">
+          Use cases
+          <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
+          <span style="position: absolute; top: 100%; left: -18px; padding-top: 14px; display: {{ menuShow }};">
+            <span style="display: grid; min-width: 250px; background: #FFFFFF; border: 1px solid rgba(14,36,51,0.14); box-shadow: 0 20px 46px rgba(14,36,51,0.14);">
+              <a href="DocuFence For Legal.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0F6F8A; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;"><i data-lucide="scale" style="width: 16px; height: 16px; color: #15A8CE;"></i>Legal</a>
+              <a href="DocuFence For HR.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0E2433; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;"><i data-lucide="users-round" style="width: 16px; height: 16px; color: #15A8CE;"></i>HR</a>
+              <a href="DocuFence For Finance.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0E2433; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;"><i data-lucide="line-chart" style="width: 16px; height: 16px; color: #15A8CE;"></i>Finance</a>
+              <a href="DocuFence For Operations.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0E2433; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;"><i data-lucide="workflow" style="width: 16px; height: 16px; color: #15A8CE;"></i>Operations</a>
+              <a href="DocuFence For Procurement.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0E2433;" style-hover="background: #F1F4F5;"><i data-lucide="handshake" style="width: 16px; height: 16px; color: #15A8CE;"></i>Procurement</a>
+            </span>
+          </span>
+        </span>
+        <a href="DocuFence Security.dc.html" style="color: #3F5462;">Security</a>
+        <a href="#pricing" style="color: #3F5462;">Pricing</a>
+        <span onMouseEnter="{{ openRes }}" onMouseLeave="{{ closeRes }}" style="position: relative; display: inline-flex; align-items: center; gap: 6px; cursor: default; color: #3F5462;">
+          Resources
+          <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
+          <span style="position: absolute; top: 100%; left: -18px; padding-top: 14px; display: {{ resShow }};">
+            <span style="display: grid; min-width: 310px; background: #FFFFFF; border: 1px solid rgba(14,36,51,0.14); box-shadow: 0 20px 46px rgba(14,36,51,0.14);">
+              <a href="DocuFence Blog.dc.html" style="display: grid; gap: 5px; padding: 15px 18px; color: #0E2433; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;">
+                <span style="display: flex; align-items: center; gap: 10px; font-size: 14px;"><i data-lucide="newspaper" style="width: 16px; height: 16px; color: #15A8CE;"></i>Blogs</span>
+                <span style="font-size: 12px; line-height: 1.45; color: #5A7180; padding-left: 26px;">Latest articles, guides, and industry insights</span>
+              </a>
+              <a href="DocuFence Guides.dc.html" style="display: grid; gap: 5px; padding: 15px 18px; color: #0E2433;" style-hover="background: #F1F4F5;">
+                <span style="display: flex; align-items: center; gap: 10px; font-size: 14px;"><i data-lucide="book-open" style="width: 16px; height: 16px; color: #15A8CE;"></i>Guides</span>
+                <span style="font-size: 12px; line-height: 1.45; color: #5A7180; padding-left: 26px;">In-depth operational and compliance playbooks</span>
+              </a>
+            </span>
+          </span>
+        </span>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 16px; flex-shrink: 0; white-space: nowrap;">
+        <a href="#signup" style="font-size: 15px; color: #3F5462;">Sign Up</a>
+        <a href="#contact" style="font-size: 15px; color: #F8F9FA; background: #0E2433; padding: 11px 20px;" style-hover="background: #000000;">Book a Call</a>
+      </div>
+    </div>
+  </header>
+
+  <section data-screen-label="Hero" style="max-width: 1180px; margin: 0 auto; padding: 92px 40px 60px;">
+    <div data-rise style="display: flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: #0E2433; margin-bottom: 30px;">
+      <span style="width: 6px; height: 6px; background: #15A8CE; display: inline-block;"></span>
+      TERMS OF SERVICE
+    </div>
+    <h1 data-rise style="font-weight: 500; font-size: 64px; line-height: 1.0; letter-spacing: -0.032em; margin: 0 0 26px; max-width: 14em;">Terms and Conditions</h1>
+    <p data-rise style="font-size: 18px; line-height: 1.6; color: #4A5F6D; max-width: 34em; margin: 0 0 26px;">The agreement between you and DocuFence. Plain wording, no traps, and nothing here removes a right you have under the law where you live.</p>
+    <div data-rise style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #8FA3AF;">LAST UPDATED JULY 2026</div>
+  </section>
+
+  <section data-screen-label="Body" style="background: #FFFFFF; border-top: 1px solid rgba(14,36,51,0.10); border-bottom: 1px solid rgba(14,36,51,0.10);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 24px 40px 80px; display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 80px; align-items: start;">
+      <div data-rise style="position: sticky; top: 92px; padding-top: 44px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: #8FA3AF; margin-bottom: 14px;">CONTENTS</div>
+        <a href="#s1" style="display: flex; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(14,36,51,0.12); color: #4A5F6D; font-size: 14px; line-height: 1.4;" style-hover="color: #0E2433;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8FA3AF;">01</span>The agreement</a>
+        <a href="#s2" style="display: flex; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(14,36,51,0.12); color: #4A5F6D; font-size: 14px; line-height: 1.4;" style-hover="color: #0E2433;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8FA3AF;">02</span>Your account</a>
+        <a href="#s3" style="display: flex; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(14,36,51,0.12); color: #4A5F6D; font-size: 14px; line-height: 1.4;" style-hover="color: #0E2433;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8FA3AF;">03</span>Acceptable use</a>
+        <a href="#s4" style="display: flex; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(14,36,51,0.12); color: #4A5F6D; font-size: 14px; line-height: 1.4;" style-hover="color: #0E2433;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8FA3AF;">04</span>Your content</a>
+        <a href="#s5" style="display: flex; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(14,36,51,0.12); color: #4A5F6D; font-size: 14px; line-height: 1.4;" style-hover="color: #0E2433;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8FA3AF;">05</span>Electronic signatures</a>
+        <a href="#s6" style="display: flex; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(14,36,51,0.12); color: #4A5F6D; font-size: 14px; line-height: 1.4;" style-hover="color: #0E2433;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8FA3AF;">06</span>Fees and billing</a>
+        <a href="#s7" style="display: flex; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(14,36,51,0.12); color: #4A5F6D; font-size: 14px; line-height: 1.4;" style-hover="color: #0E2433;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8FA3AF;">07</span>Availability and support</a>
+        <a href="#s8" style="display: flex; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(14,36,51,0.12); color: #4A5F6D; font-size: 14px; line-height: 1.4;" style-hover="color: #0E2433;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8FA3AF;">08</span>Security and privacy</a>
+        <a href="#s9" style="display: flex; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(14,36,51,0.12); color: #4A5F6D; font-size: 14px; line-height: 1.4;" style-hover="color: #0E2433;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8FA3AF;">09</span>Ending the agreement</a>
+        <a href="#s10" style="display: flex; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(14,36,51,0.12); color: #4A5F6D; font-size: 14px; line-height: 1.4;" style-hover="color: #0E2433;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8FA3AF;">10</span>Liability</a>
+        <a href="#s11" style="display: flex; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(14,36,51,0.12); color: #4A5F6D; font-size: 14px; line-height: 1.4;" style-hover="color: #0E2433;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8FA3AF;">11</span>Changes to these terms</a>
+        <a href="#s12" style="display: flex; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(14,36,51,0.12); color: #4A5F6D; font-size: 14px; line-height: 1.4;" style-hover="color: #0E2433;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8FA3AF;">12</span>Governing law and contact</a>
+      </div>
+      <div>
+      <div id="s1" data-rise style="padding: 44px 0; border-bottom: 1px solid rgba(14,36,51,0.12);">
+        <div style="display: grid; grid-template-columns: 56px 1fr; gap: 24px; align-items: start;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #8FA3AF; padding-top: 9px;">01</span>
+          <div>
+            <h2 style="font-weight: 500; font-size: 30px; line-height: 1.1; letter-spacing: -0.024em; margin: 0 0 18px;">The agreement</h2>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">These terms apply when you create a DocuFence account or use the service. If you are agreeing on behalf of a company, you confirm you are allowed to bind that company.</p>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">If we have signed a separate written agreement with your company, that agreement takes precedence where the two conflict.</p>
+          </div>
+        </div>
+      </div>
+      <div id="s2" data-rise style="padding: 44px 0; border-bottom: 1px solid rgba(14,36,51,0.12);">
+        <div style="display: grid; grid-template-columns: 56px 1fr; gap: 24px; align-items: start;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #8FA3AF; padding-top: 9px;">02</span>
+          <div>
+            <h2 style="font-weight: 500; font-size: 30px; line-height: 1.1; letter-spacing: -0.024em; margin: 0 0 18px;">Your account</h2>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">You are responsible for keeping your credentials secure and for activity carried out under your account.</p>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">You must tell us promptly if you believe an account has been accessed without permission.</p>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">Accounts are for named people. Do not share one login between several users.</p>
+          </div>
+        </div>
+      </div>
+      <div id="s3" data-rise style="padding: 44px 0; border-bottom: 1px solid rgba(14,36,51,0.12);">
+        <div style="display: grid; grid-template-columns: 56px 1fr; gap: 24px; align-items: start;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #8FA3AF; padding-top: 9px;">03</span>
+          <div>
+            <h2 style="font-weight: 500; font-size: 30px; line-height: 1.1; letter-spacing: -0.024em; margin: 0 0 18px;">Acceptable use</h2>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">Do not use DocuFence to store or distribute unlawful material, malware, or content you have no right to hold.</p>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">Do not attempt to access another customer’s data, probe our infrastructure without written permission, or interfere with the service for other users.</p>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">Do not resell or white-label the service without a written agreement with us.</p>
+          </div>
+        </div>
+      </div>
+      <div id="s4" data-rise style="padding: 44px 0; border-bottom: 1px solid rgba(14,36,51,0.12);">
+        <div style="display: grid; grid-template-columns: 56px 1fr; gap: 24px; align-items: start;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #8FA3AF; padding-top: 9px;">04</span>
+          <div>
+            <h2 style="font-weight: 500; font-size: 30px; line-height: 1.1; letter-spacing: -0.024em; margin: 0 0 18px;">Your content</h2>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">You own the documents you upload. Uploading them gives us no ownership and no licence beyond what is needed to run the service for you: storing the file, rendering it, and delivering it to the people you share it with.</p>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">You are responsible for having the right to upload and share what you upload.</p>
+          </div>
+        </div>
+      </div>
+      <div id="s5" data-rise style="padding: 44px 0; border-bottom: 1px solid rgba(14,36,51,0.12);">
+        <div style="display: grid; grid-template-columns: 56px 1fr; gap: 24px; align-items: start;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #8FA3AF; padding-top: 9px;">05</span>
+          <div>
+            <h2 style="font-weight: 500; font-size: 30px; line-height: 1.1; letter-spacing: -0.024em; margin: 0 0 18px;">Electronic signatures</h2>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">Signatures collected through DocuFence are electronic signatures. We record the signer, the time, and the document version signed.</p>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">You are responsible for deciding whether an electronic signature is appropriate for a given document in your jurisdiction, and for any formalities your own transaction requires.</p>
+          </div>
+        </div>
+      </div>
+      <div id="s6" data-rise style="padding: 44px 0; border-bottom: 1px solid rgba(14,36,51,0.12);">
+        <div style="display: grid; grid-template-columns: 56px 1fr; gap: 24px; align-items: start;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #8FA3AF; padding-top: 9px;">06</span>
+          <div>
+            <h2 style="font-weight: 500; font-size: 30px; line-height: 1.1; letter-spacing: -0.024em; margin: 0 0 18px;">Fees and billing</h2>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">Pricing is agreed with you before your subscription starts. Fees are billed in advance for the period you have chosen.</p>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">If a payment fails we will contact you before restricting access. Fees already paid are not refundable except where the law requires it.</p>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">We will give at least thirty days notice before any price change affecting your renewal.</p>
+          </div>
+        </div>
+      </div>
+      <div id="s7" data-rise style="padding: 44px 0; border-bottom: 1px solid rgba(14,36,51,0.12);">
+        <div style="display: grid; grid-template-columns: 56px 1fr; gap: 24px; align-items: start;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #8FA3AF; padding-top: 9px;">07</span>
+          <div>
+            <h2 style="font-weight: 500; font-size: 30px; line-height: 1.1; letter-spacing: -0.024em; margin: 0 0 18px;">Availability and support</h2>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">We work to keep the service available and will give notice of planned maintenance where we reasonably can.</p>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">We do not promise uninterrupted availability unless a separate written service level agreement says otherwise.</p>
+          </div>
+        </div>
+      </div>
+      <div id="s8" data-rise style="padding: 44px 0; border-bottom: 1px solid rgba(14,36,51,0.12);">
+        <div style="display: grid; grid-template-columns: 56px 1fr; gap: 24px; align-items: start;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #8FA3AF; padding-top: 9px;">08</span>
+          <div>
+            <h2 style="font-weight: 500; font-size: 30px; line-height: 1.1; letter-spacing: -0.024em; margin: 0 0 18px;">Security and privacy</h2>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">Our security controls are described on the security page, and our handling of personal data is described in the privacy policy. Both form part of this agreement.</p>
+          </div>
+        </div>
+      </div>
+      <div id="s9" data-rise style="padding: 44px 0; border-bottom: 1px solid rgba(14,36,51,0.12);">
+        <div style="display: grid; grid-template-columns: 56px 1fr; gap: 24px; align-items: start;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #8FA3AF; padding-top: 9px;">09</span>
+          <div>
+            <h2 style="font-weight: 500; font-size: 30px; line-height: 1.1; letter-spacing: -0.024em; margin: 0 0 18px;">Ending the agreement</h2>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">You can cancel at any time from account settings, effective at the end of your current billing period.</p>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">We may suspend or end an account that breaches these terms, and where the breach can be fixed we will give you a reasonable chance to fix it first.</p>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">Before your account closes you can export every document. After closure, deletion follows the timeline in the privacy policy.</p>
+          </div>
+        </div>
+      </div>
+      <div id="s10" data-rise style="padding: 44px 0; border-bottom: 1px solid rgba(14,36,51,0.12);">
+        <div style="display: grid; grid-template-columns: 56px 1fr; gap: 24px; align-items: start;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #8FA3AF; padding-top: 9px;">10</span>
+          <div>
+            <h2 style="font-weight: 500; font-size: 30px; line-height: 1.1; letter-spacing: -0.024em; margin: 0 0 18px;">Liability</h2>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">Nothing in these terms limits liability for death or personal injury caused by negligence, for fraud, or for anything else that cannot lawfully be limited.</p>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">Subject to that, neither party is liable for indirect or consequential loss, and our total liability in any twelve month period is limited to the fees you paid us in that period.</p>
+          </div>
+        </div>
+      </div>
+      <div id="s11" data-rise style="padding: 44px 0; border-bottom: 1px solid rgba(14,36,51,0.12);">
+        <div style="display: grid; grid-template-columns: 56px 1fr; gap: 24px; align-items: start;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #8FA3AF; padding-top: 9px;">11</span>
+          <div>
+            <h2 style="font-weight: 500; font-size: 30px; line-height: 1.1; letter-spacing: -0.024em; margin: 0 0 18px;">Changes to these terms</h2>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">We may update these terms. If a change materially affects you, we will give notice by email at least thirty days before it takes effect, and you may cancel before then if you disagree.</p>
+          </div>
+        </div>
+      </div>
+      <div id="s12" data-rise style="padding: 44px 0; border-bottom: 1px solid rgba(14,36,51,0.12);">
+        <div style="display: grid; grid-template-columns: 56px 1fr; gap: 24px; align-items: start;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #8FA3AF; padding-top: 9px;">12</span>
+          <div>
+            <h2 style="font-weight: 500; font-size: 30px; line-height: 1.1; letter-spacing: -0.024em; margin: 0 0 18px;">Governing law and contact</h2>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">These terms are governed by the laws of England and Wales, and the courts of England and Wales have jurisdiction, unless a separate signed agreement says otherwise.</p>
+            <p style="font-size: 16px; line-height: 1.7; color: #4A5F6D; margin: 0 0 14px; max-width: 40em;">Questions go to legal@docufence.com.</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" data-screen-label="CTA" style="background: #0E2433; color: #E8EDEF;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 84px 40px; display: flex; align-items: center; justify-content: space-between; gap: 40px;">
+      <div>
+        <div style="font-size: 34px; font-weight: 500; letter-spacing: -0.024em; margin-bottom: 12px;">Questions about this page?</div>
+        <p style="font-size: 17px; line-height: 1.55; color: #A9BCC6; margin: 0; max-width: 30em;">Write to legal@docufence.com and a person will answer.</p>
+      </div>
+      <div style="display: flex; gap: 12px; flex-shrink: 0;">
+        <a href="DocuFence Security.dc.html" style="font-size: 15px; color: #E8EDEF; padding: 13px 24px; border: 1px solid rgba(232,237,239,0.28); white-space: nowrap;" style-hover="border-color: rgba(232,237,239,0.6);">Security page</a>
+        <a href="#book" style="font-size: 15px; color: #0E2433; background: #F8F9FA; padding: 14px 28px; white-space: nowrap;" style-hover="background: #FFFFFF;">Book a Call</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background: #0E2433; color: #93A9B4; border-top: 1px solid rgba(232,237,239,0.10);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 64px 40px 40px; display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 40px;">
+      <div>
+        <div style="display: flex; align-items: center; gap: 10px; color: #E8EDEF;">
+          <span style="width: 12px; height: 12px; background: #15A8CE;"></span>
+          <span style="font-size: 20px;">DocuFence</span>
+        </div>
+        <p style="font-size: 14px; line-height: 1.6; margin: 16px 0 0; max-width: 22em;">The secure document workspace. Edit, sign, and share in one place.</p>
+      </div>
+      <div style="display: grid; gap: 11px; font-size: 14px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: #E8EDEF;">PRODUCT</div>
+        <a href="DocuFence Product.dc.html#editing" style="color: #93A9B4;">Editing</a>
+        <a href="DocuFence Product.dc.html#editing" style="color: #93A9B4;">Annotation</a>
+        <a href="DocuFence Product.dc.html#signatures" style="color: #93A9B4;">Signatures</a>
+        <a href="DocuFence Product.dc.html#sharing" style="color: #93A9B4;">Secure sharing</a>
+      </div>
+      <div style="display: grid; gap: 11px; font-size: 14px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: #E8EDEF;">USE CASES</div>
+        <a href="DocuFence For Legal.dc.html" style="color: #93A9B4;">Legal</a>
+        <a href="DocuFence For HR.dc.html" style="color: #93A9B4;">HR</a>
+        <a href="DocuFence For Finance.dc.html" style="color: #93A9B4;">Finance</a>
+        <a href="DocuFence For Operations.dc.html" style="color: #93A9B4;">Operations</a>
+        <a href="DocuFence For Procurement.dc.html" style="color: #93A9B4;">Procurement</a>
+      </div>
+      <div style="display: grid; gap: 11px; font-size: 14px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: #E8EDEF;">RESOURCES</div>
+        <a href="DocuFence Blog.dc.html" style="color: #93A9B4;">Blogs</a>
+        <a href="DocuFence Guides.dc.html" style="color: #93A9B4;">Guides</a>
+        <a href="DocuFence Security.dc.html" style="color: #93A9B4;">Security</a>
+        <a href="#pricing" style="color: #93A9B4;">Pricing</a>
+      </div>
+      <div style="display: grid; gap: 11px; font-size: 14px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: #E8EDEF;">COMPANY</div>
+        <a href="#contact" style="color: #93A9B4;">Contact</a>
+        <a href="DocuFence Privacy.dc.html" style="color: #93A9B4;">Privacy Policy</a>
+        <a href="DocuFence Terms.dc.html" style="color: #93A9B4;">Terms and Conditions</a>
+      </div>
+    </div>
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px 44px; font-size: 13px;">© 2026 DocuFence</div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderIcons() {
+    if (window.lucide) window.lucide.createIcons();
+    else setTimeout(() => this.renderIcons(), 300);
+  }
+  componentDidMount() {
+    this.renderIcons();
+    const nodes = Array.from(document.querySelectorAll('[data-rise]'));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        e.target.style.opacity = '';
+        e.target.style.animation = 'df-rise 700ms cubic-bezier(.2,.7,.2,1) both';
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+    const hidden = [];
+    nodes.forEach((n) => {
+      if (n.getBoundingClientRect().top > window.innerHeight * 0.9) { n.style.opacity = '0'; hidden.push(n); io.observe(n); }
+    });
+    this._io = io;
+    let fired = false;
+    document.addEventListener('scroll', () => { fired = true; }, { once: true, passive: true });
+    this._safety = setTimeout(() => { if (!fired) hidden.forEach((n) => { n.style.opacity = ''; }); }, 4000);
+  }
+  componentDidUpdate() { this.renderIcons(); }
+  componentWillUnmount() { if (this._io) this._io.disconnect(); if (this._safety) clearTimeout(this._safety); }
+  state = { menu: false };
+  renderVals() {
+    return {
+      menuShow: this.state.menu ? 'block' : 'none',
+      openMenu: () => this.setState({ menu: true }),
+      closeMenu: () => this.setState({ menu: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

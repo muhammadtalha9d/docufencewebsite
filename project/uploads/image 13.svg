@@ -1,0 +1,21 @@
+<svg width="254" height="254" viewBox="0 0 254 254" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g filter="url(#filter0_d_162_3437)">
+<rect x="40.5" y="40.5" width="172.959" height="172.959" rx="16" fill="url(#pattern0_162_3437)" shape-rendering="crispEdges"></rect>
+</g>
+<defs>
+<filter id="filter0_d_162_3437" x="0" y="0" width="253.959" height="253.959" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+<feOffset></feOffset>
+<feGaussianBlur stdDeviation="20.25"></feGaussianBlur>
+<feComposite in2="hardAlpha" operator="out"></feComposite>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"></feColorMatrix>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_162_3437"></feBlend>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_162_3437" result="shape"></feBlend>
+</filter>
+<pattern id="pattern0_162_3437" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_162_3437" transform="scale(0.00195312)"></use>
+</pattern>
+<image id="image0_162_3437" width="512" height="512" preserveAspectRatio="none"></image>
+</defs>
+</svg>

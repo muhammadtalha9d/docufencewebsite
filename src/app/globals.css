@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-archivo);
+  --font-mono: var(--font-jetbrains-mono);
+
+  /* DocuFence brand tokens */
+  --color-ink: #0e2433; /* primary text, dark section fill */
+  --color-ink-soft: #3f5462; /* nav / body text on light */
+  --color-ink-faint: #4a5f6d; /* secondary body copy on light */
+  --color-mono-label: #8fa3af; /* mono eyebrows + contents numbers on light */
+  --color-paper: #f8f9fa; /* page background, light sections */
+  --color-link: #0f6f8a; /* default anchor color */
+  --color-accent: #15a8ce; /* cyan brand accent */
+  --color-mist: #e8edef; /* headings / primary text on dark */
+  --color-mist-soft: #a9bcc6; /* body copy on dark */
+  --color-mist-faint: #93a9b4; /* footer copy on dark */
+  --color-dropdown-sub: #5a7180; /* dropdown menu subtext */
+}
+
+@keyframes df-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes df-blink {
+  0%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes df-type {
+  0% { width: 0; }
+  34% { width: 100%; }
+  100% { width: 100%; }
+}
+@keyframes df-pop {
+  0% { opacity: 0; transform: translateY(10px); }
+  14%, 100% { opacity: 1; transform: none; }
+}
+@keyframes df-scalein {
+  0% { opacity: 0; transform: scale(0.96); }
+  12%, 100% { opacity: 1; transform: none; }
+}
+@keyframes df-modalin {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.94); }
+  12%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+@keyframes df-sign {
+  0% { clip-path: inset(0 100% 0 0); }
+  46% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+@keyframes df-redact {
+  0% { width: 0; }
+  30% { width: 148px; }
+  100% { width: 148px; }
+}
+@keyframes df-knob {
+  0% { transform: translateX(0); }
+  10%, 100% { transform: translateX(16px); }
+}
+@keyframes df-track {
+  0% { background: #D5DDE2; }
+  10%, 100% { background: #15A8CE; }
+}
+@keyframes df-kill {
+  0%, 60% { box-shadow: 0 0 0 0 rgba(200, 54, 54, 0.5); }
+  78% { box-shadow: 0 0 0 16px rgba(200, 54, 54, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(200, 54, 54, 0); }
+}
+@keyframes df-press {
+  0%, 55% { transform: none; }
+  62% { transform: scale(0.965); }
+  70%, 100% { transform: none; }
+}
+
+@layer base {
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: var(--color-link);
+  }
+  a:hover {
+    color: var(--color-ink);
+  }
+}

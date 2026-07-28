@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #F8F9FA; -webkit-font-smoothing: antialiased; }
+  a { color: #0F87A6; text-decoration: none; }
+  a:hover { color: #0E2433; }
+  @keyframes df-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @keyframes df-blink { 0%, 45% { opacity: 1; } 50%, 100% { opacity: 0; } }
+  @keyframes df-type { 0% { width: 0; } 34% { width: 100%; } 100% { width: 100%; } }
+  @keyframes df-pop { 0% { opacity: 0; transform: translateY(10px); } 14%, 100% { opacity: 1; transform: none; } }
+  @keyframes df-scalein { 0% { opacity: 0; transform: scale(0.96); } 12%, 100% { opacity: 1; transform: none; } }
+  @keyframes df-modalin { 0% { opacity: 0; transform: translate(-50%,-50%) scale(0.94); } 12%, 100% { opacity: 1; transform: translate(-50%,-50%) scale(1); } }
+  @keyframes df-sign { 0% { clip-path: inset(0 100% 0 0); } 46% { clip-path: inset(0 0 0 0); } 100% { clip-path: inset(0 0 0 0); } }
+  @keyframes df-redact { 0% { width: 0; } 30% { width: 148px; } 100% { width: 148px; } }
+  @keyframes df-knob { 0% { transform: translateX(0); } 10%, 100% { transform: translateX(16px); } }
+  @keyframes df-track { 0% { background: #D5DDE2; } 10%, 100% { background: #15A8CE; } }
+  @keyframes df-kill { 0%, 60% { box-shadow: 0 0 0 0 rgba(200,54,54,0.5); } 78% { box-shadow: 0 0 0 16px rgba(200,54,54,0); } 100% { box-shadow: 0 0 0 0 rgba(200,54,54,0); } }
+  @keyframes df-press { 0%, 55% { transform: none; } 62% { transform: scale(0.965); } 70%, 100% { transform: none; } }
+</style>
+<script src="https://unpkg.com/lucide@0.475.0/dist/umd/lucide.min.js"></script>
+</helmet>
+
+<div style="font-family: Archivo, 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #0E2433; background: #F8F9FA; overflow-x: hidden;">
+
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(247,245,242,0.88); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(14,36,51,0.10);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 28px;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 13px; height: 13px; background: #15A8CE;"></div>
+        <span style="font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif; font-size: 21px; letter-spacing: -0.01em;">DocuFence</span>
+      </div>
+      <nav style="display: flex; align-items: center; gap: 24px; font-size: 14px; color: #4A5F6D; white-space: nowrap; min-width: 0;">
+        <a href="DocuFence Product.dc.html" style="color: #4A5F6D;">Product</a>
+        <span onMouseEnter="{{ openMenu }}" onMouseLeave="{{ closeMenu }}" style="position: relative; display: inline-flex; align-items: center; gap: 6px; cursor: default; color: #0E2433;">
+          Use cases
+          <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
+          <span style="position: absolute; top: 100%; left: -18px; padding-top: 14px; display: {{ menuShow }};">
+            <span style="display: grid; min-width: 250px; background: #FFFFFF; border: 1px solid rgba(14,36,51,0.14); box-shadow: 0 20px 46px rgba(14,36,51,0.14);">
+              <a href="DocuFence For Legal.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0E2433; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;"><i data-lucide="scale" style="width: 16px; height: 16px; color: #15A8CE;"></i>Legal</a>
+              <a href="DocuFence For HR.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0E2433; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;"><i data-lucide="users-round" style="width: 16px; height: 16px; color: #15A8CE;"></i>HR</a>
+              <a href="DocuFence For Finance.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0E2433; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;"><i data-lucide="line-chart" style="width: 16px; height: 16px; color: #15A8CE;"></i>Finance</a>
+              <a href="DocuFence For Operations.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0E2433; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;"><i data-lucide="workflow" style="width: 16px; height: 16px; color: #15A8CE;"></i>Operations</a>
+              <a href="DocuFence For Procurement.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0E2433;" style-hover="background: #F1F4F5;"><i data-lucide="handshake" style="width: 16px; height: 16px; color: #15A8CE;"></i>Procurement</a>
+            </span>
+          </span>
+        </span>
+        <a href="DocuFence Security.dc.html" style="color: #4A5F6D;">Security</a>
+        <a href="#pricing" style="color: #4A5F6D;">Pricing</a>
+        <span onMouseEnter="{{ openRes }}" onMouseLeave="{{ closeRes }}" style="position: relative; display: inline-flex; align-items: center; gap: 6px; cursor: default; color: #4A5F6D;">
+          Resources
+          <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
+          <span style="position: absolute; top: 100%; left: -18px; padding-top: 14px; display: {{ resShow }};">
+            <span style="display: grid; min-width: 310px; background: #FFFFFF; border: 1px solid rgba(14,36,51,0.14); box-shadow: 0 20px 46px rgba(14,36,51,0.14);">
+              <a href="DocuFence Blog.dc.html" style="display: grid; gap: 5px; padding: 15px 18px; color: #0E2433; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;">
+                <span style="display: flex; align-items: center; gap: 10px; font-size: 14px;"><i data-lucide="newspaper" style="width: 16px; height: 16px; color: #15A8CE;"></i>Blogs</span>
+                <span style="font-size: 12px; line-height: 1.45; color: #5A7180; padding-left: 26px;">Latest articles, guides, and industry insights</span>
+              </a>
+              <a href="DocuFence Guides.dc.html" style="display: grid; gap: 5px; padding: 15px 18px; color: #0E2433;" style-hover="background: #F1F4F5;">
+                <span style="display: flex; align-items: center; gap: 10px; font-size: 14px;"><i data-lucide="book-open" style="width: 16px; height: 16px; color: #15A8CE;"></i>Guides</span>
+                <span style="font-size: 12px; line-height: 1.45; color: #5A7180; padding-left: 26px;">In-depth operational and compliance playbooks</span>
+              </a>
+            </span>
+          </span>
+        </span>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 14px; flex-shrink: 0; white-space: nowrap;">
+        <a href="#contact" style="font-size: 14px; color: #0E2433; padding: 9px 14px; border: 1px solid rgba(14,36,51,0.18);">Book a Call</a>
+        <a href="#signup" style="font-size: 14px; color: #F8F9FA; background: #0E2433; padding: 10px 18px;" style-hover="background: #000000;">Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <section data-screen-label="Hero" style="padding: 108px 0 0;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px 64px;">
+      <div data-rise style="display: flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: #0E2433; margin-bottom: 34px;">
+        <span style="width: 6px; height: 6px; background: #15A8CE; display: inline-block;"></span>
+        THE UNIFIED SECURE DOCUMENT WORKSPACE
+      </div>
+      <h1 data-rise style="font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif; font-weight: 500; font-size: 88px; line-height: 0.98; letter-spacing: -0.032em; margin: 0 0 34px; max-width: 15em; text-wrap: pretty;">One secure workspace <span style="color: #8FA3AF;">for all your teams' critical documents.</span></h1>
+      <div style="display: grid; grid-template-columns: 1fr auto; gap: 56px; align-items: end;">
+        <p data-rise style="font-size: 19px; line-height: 1.55; color: #4A5F6D; max-width: 34em; margin: 0; text-wrap: pretty;">Your daily workflow shouldn't require four different subscriptions and unsafe email chains. DocuFence brings native editing, redlining, e-signatures, and zero-trust sharing into a single secure perimeter, so your team stops losing hours to tool-switching and keeps company data locked down.</p>
+        <div data-rise style="display: flex; align-items: center; gap: 14px;">
+          <a href="#signup" style="font-size: 15px; color: #F8F9FA; background: #0E2433; padding: 16px 32px; white-space: nowrap;" style-hover="background: #000000;">Sign Up</a>
+          <a href="#contact" style="font-size: 15px; color: #0E2433; padding: 15px 28px; border: 1px solid rgba(14,36,51,0.20); white-space: nowrap;" style-hover="border-color: rgba(14,36,51,0.45);">Book a Call</a>
+        </div>
+      </div>
+    </div>
+    <div style="background: #0E2433; padding: 72px 40px 0; overflow: hidden;">
+      <div data-rise style="max-width: 1000px; margin: 0 auto; background: #FFFFFF; box-shadow: 0 24px 70px rgba(0,0,0,0.5);">
+
+        <div style="background: #16303F; padding: 12px 18px; display: flex; align-items: center; gap: 16px;">
+          <div style="display: flex; gap: 7px;">
+            <span style="width: 9px; height: 9px; border-radius: 50%; background: rgba(232,237,239,0.28);"></span>
+            <span style="width: 9px; height: 9px; border-radius: 50%; background: rgba(232,237,239,0.28);"></span>
+            <span style="width: 9px; height: 9px; border-radius: 50%; background: rgba(232,237,239,0.28);"></span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 9px; background: rgba(232,237,239,0.08); border: 1px solid rgba(232,237,239,0.14); padding: 7px 14px;">
+            <i data-lucide="file-text" style="width: 14px; height: 14px; color: #8FA3AF;"></i>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #E8EDEF;">Vendor-Agreement_v4.pdf</span>
+          </div>
+          <div style="margin-left: auto; display: flex; align-items: center; gap: 10px;">
+            <span style="width: 28px; height: 28px; border-radius: 50%; background: #2C5468; color: #E8EDEF; font-size: 11px; display: flex; align-items: center; justify-content: center; border: 2px solid #16303F;">RV</span>
+            <span style="width: 28px; height: 28px; border-radius: 50%; background: #15A8CE; color: #0E2433; font-size: 11px; display: flex; align-items: center; justify-content: center; border: 2px solid #16303F; margin-left: -18px;">YO</span>
+            <span style="display: flex; align-items: center; gap: 7px; border: 1px solid rgba(21,168,206,0.6); color: #15A8CE; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; padding: 6px 12px;">
+              <span style="width: 6px; height: 6px; border-radius: 50%; background: #15A8CE;"></span>LIVE
+            </span>
+          </div>
+        </div>
+
+        <div style="border-bottom: 1px solid rgba(14,36,51,0.12); padding: 12px 18px; display: flex; align-items: center; gap: 10px;">
+          <span style="display: flex; align-items: center; gap: 9px; border: 1px solid rgba(14,36,51,0.16); padding: 9px 14px; font-size: 13px;">
+            <i data-lucide="type" style="width: 15px; height: 15px; color: #15A8CE;"></i>Edit PDF text
+          </span>
+          <span style="display: flex; align-items: center; gap: 9px; border: 1px solid rgba(14,36,51,0.16); padding: 9px 14px; font-size: 13px;">
+            <i data-lucide="message-square" style="width: 15px; height: 15px; color: #15A8CE;"></i>Add comment
+          </span>
+          <span style="display: flex; align-items: center; gap: 9px; border: 1px solid rgba(14,36,51,0.16); padding: 9px 14px; font-size: 13px;">
+            <i data-lucide="pen-tool" style="width: 15px; height: 15px; color: #15A8CE;"></i>Request signature
+          </span>
+          <span style="display: flex; align-items: center; gap: 9px; border: 1px solid rgba(14,36,51,0.16); padding: 9px 14px; font-size: 13px;">
+            <i data-lucide="eye-off" style="width: 15px; height: 15px; color: #15A8CE;"></i>Redact
+          </span>
+          <span style="margin-left: auto; display: flex; align-items: center; gap: 8px; font-size: 12px; color: #4A5F6D;">
+            <i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: #15A8CE;"></i>All changes saved
+          </span>
+        </div>
+
+        <div style="position: relative; background: #F1F4F5; padding: 34px 40px 44px;">
+          <div style="background: #FFFFFF; border: 1px solid rgba(14,36,51,0.10); padding: 40px 46px 52px; max-width: 720px;">
+            <div style="font-size: 19px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 16px;">4. Service Levels</div>
+            <div style="border-left: 3px solid #15A8CE; background: rgba(21,168,206,0.07); padding: 12px 16px; font-size: 15px; line-height: 1.65; color: #0E2433; margin-bottom: 30px;">
+              The supplier will maintain availability of 99.5 percent measured monthly. Credits apply where availability falls below <span style="background: rgba(21,168,206,0.28); padding: 1px 3px;">the agreed threshold</span><span style="display: inline-block; width: 2px; height: 15px; background: #15A8CE; vertical-align: -3px; margin-left: 1px;"></span>
+            </div>
+            <div style="font-size: 19px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 16px;">5. Limitation of Liability</div>
+            <p style="font-size: 15px; line-height: 1.7; color: #0E2433; margin: 0 0 14px;">Neither party is liable for indirect or consequential loss arising out of this agreement, <span style="border-bottom: 2px solid #E4B95B; background: rgba(228,185,91,0.18);">including loss of profits or anticipated savings</span>.</p>
+            <p style="font-size: 15px; line-height: 1.7; color: #4A5F6D; margin: 0;">Total liability is capped at the fees paid in the twelve months preceding the claim.</p>
+          </div>
+
+          <span style="position: absolute; top: 84px; left: 470px; background: #0E2433; color: #E8EDEF; font-size: 11px; padding: 6px 11px; white-space: nowrap;">Reviewer is typing</span>
+
+          <div style="position: absolute; right: 26px; bottom: 46px; width: 300px; background: #FFFFFF; border: 1px solid rgba(14,36,51,0.14); box-shadow: 0 18px 40px rgba(14,36,51,0.18);">
+            <div style="display: flex; align-items: center; gap: 10px; padding: 14px 16px 10px;">
+              <span style="width: 26px; height: 26px; border-radius: 50%; background: #2C5468; color: #E8EDEF; font-size: 10px; display: flex; align-items: center; justify-content: center;">RV</span>
+              <span style="font-size: 14px;">Reviewer</span>
+              <span style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #8FA3AF;">2 MIN</span>
+            </div>
+            <p style="font-size: 14px; line-height: 1.55; color: #4A5F6D; margin: 0; padding: 0 16px 14px;">Cap liability at twelve months of fees and insert the standard clause before we send this for signature.</p>
+            <div style="display: flex; gap: 10px; padding: 0 16px 16px;">
+              <span style="flex: 1; text-align: center; border: 1px solid rgba(14,36,51,0.16); padding: 9px 0; font-size: 13px;">Reply</span>
+              <span style="flex: 1; text-align: center; background: #15A8CE; color: #0E2433; padding: 10px 0; font-size: 13px;">Resolve</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Why DocuFence" style="max-width: 1180px; margin: 0 auto; padding: 104px 40px 100px;">
+    <div data-rise style="margin-bottom: 56px; max-width: 46em;">
+      <div style="display: flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: #0E2433; margin-bottom: 28px;">
+        <span style="width: 6px; height: 6px; background: #15A8CE; display: inline-block;"></span>
+        WHY DOCUFENCE
+      </div>
+      <h2 style="font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif; font-weight: 500; font-size: 56px; line-height: 1.02; letter-spacing: -0.028em; margin: 0 0 22px;">The document leaves your hands. <span style="color: #8FA3AF;">It never leaves your control.</span></h2>
+      <p style="font-size: 19px; line-height: 1.5; color: #4A5F6D; margin: 0; max-width: 26em; text-wrap: pretty;">One file, one workspace, from first edit to final signature and every access after it.</p>
+    </div>
+    <div data-rise style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+      <div style="background: #FFFFFF; border: 1px solid rgba(14,36,51,0.12);">
+        <div style="height: 220px; background: #0E2433; display: flex; align-items: center; justify-content: center; padding: 0 20px; overflow: hidden;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="width: 17px; height: 24px; border: 1px solid rgba(232,237,239,0.35);"></span>
+            <span style="width: 17px; height: 24px; border: 1px solid rgba(232,237,239,0.35);"></span>
+            <span style="width: 17px; height: 24px; border: 1px solid rgba(232,237,239,0.35);"></span>
+            <span style="width: 17px; height: 24px; border: 1px solid rgba(232,237,239,0.35);"></span>
+            <span style="width: 17px; height: 24px; border: 1px solid rgba(232,237,239,0.35);"></span>
+            <span style="width: 26px; height: 2px; background: rgba(232,237,239,0.4); margin: 0 5px;"></span>
+            <span style="width: 58px; height: 78px; background: #15A8CE; box-shadow: 0 0 0 8px rgba(21,168,206,0.14);"></span>
+          </div>
+        </div>
+        <div style="padding: 26px 26px 30px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <i data-lucide="file-check" style="width: 20px; height: 20px; color: #15A8CE;"></i>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: #8FA3AF;">01</span>
+          </div>
+          <h3 style="font-size: 23px; font-weight: 500; letter-spacing: -0.015em; margin: 0 0 10px;">The file never leaves the workspace</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #4A5F6D; margin: 0;">Open the document once. Edit, review, sign, and send it from the same window, with nothing exported in between.</p>
+        </div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid rgba(14,36,51,0.12);">
+        <div style="height: 220px; background: #0E2433; display: flex; align-items: center; justify-content: center; padding: 0 20px; overflow: hidden;">
+          <div style="width: 186px; height: 116px; border: 1px solid rgba(232,237,239,0.25); display: flex; align-items: center; justify-content: center;">
+            <div style="width: 130px; height: 76px; border: 1px solid rgba(232,237,239,0.45); display: flex; align-items: center; justify-content: center;">
+              <div style="width: 76px; height: 38px; background: #15A8CE; box-shadow: 0 0 0 8px rgba(21,168,206,0.14);"></div>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 26px 26px 30px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <i data-lucide="shield-check" style="width: 20px; height: 20px; color: #15A8CE;"></i>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: #8FA3AF;">02</span>
+          </div>
+          <h3 style="font-size: 23px; font-weight: 500; letter-spacing: -0.015em; margin: 0 0 10px;">Security you can point to</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #4A5F6D; margin: 0;">Encryption in transit and at rest, permissions per recipient, and an access log you can read. We never train AI on your documents.</p>
+        </div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid rgba(14,36,51,0.12);">
+        <div style="height: 220px; background: #0E2433; display: flex; align-items: center; justify-content: center; padding: 0 20px; overflow: hidden;">
+          <div style="display: flex; align-items: center;">
+            <span style="width: 56px; height: 78px; background: #E8EDEF;"></span>
+            <span style="width: 34px; height: 3px; background: #15A8CE;"></span>
+            <span style="width: 5px; height: 78px; background: #15A8CE; box-shadow: 0 0 0 7px rgba(21,168,206,0.14);"></span>
+            <span style="width: 34px; height: 3px; background: rgba(232,237,239,0.18);"></span>
+            <span style="width: 56px; height: 78px; border: 1px dashed rgba(232,237,239,0.35);"></span>
+          </div>
+        </div>
+        <div style="padding: 26px 26px 30px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <i data-lucide="undo-2" style="width: 20px; height: 20px; color: #15A8CE;"></i>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: #8FA3AF;">03</span>
+          </div>
+          <h3 style="font-size: 23px; font-weight: 500; letter-spacing: -0.015em; margin: 0 0 10px;">Control that outlives the send</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #4A5F6D; margin: 0;">Set links to expire, restrict printing and forwarding, and pull access back in one click if something changes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="product" data-screen-label="Product walkthrough" style="background: #EDF0F1; border-top: 1px solid rgba(14,36,51,0.08); border-bottom: 1px solid rgba(14,36,51,0.08);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 96px 40px 100px;">
+      <div data-rise style="margin-bottom: 52px;">
+        <div style="display: flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: #0E2433; margin-bottom: 28px;">
+          <span style="width: 6px; height: 6px; background: #15A8CE; display: inline-block;"></span>
+          END-TO-END CONTROL
+        </div>
+        <h2 style="font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif; font-weight: 500; font-size: 56px; line-height: 1.02; letter-spacing: -0.028em; margin: 0; max-width: 15em;">From first draft to final signature, <span style="color: #8FA3AF;">under one secure roof.</span></h2>
+      </div>
+
+      <div data-rise style="display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(14,36,51,0.14);">
+        <button onClick="{{ step0 }}" style="text-align: left; background: none; border: 0; border-top: 2px solid; padding: 18px 20px 18px 0; cursor: pointer; font-family: inherit; border-top-color: {{ bar0 }}; color: {{ tint0 }};">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; opacity: 0.55;">01</div>
+          <div style="font-size: 17px; margin-top: 7px;">Collaborate &amp; Prep</div>
+        </button>
+        <button onClick="{{ step1 }}" style="text-align: left; background: none; border: 0; border-top: 2px solid; padding: 18px 20px 18px 0; cursor: pointer; font-family: inherit; border-top-color: {{ bar1 }}; color: {{ tint1 }};">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; opacity: 0.55;">02</div>
+          <div style="font-size: 17px; margin-top: 7px;">Execute</div>
+        </button>
+        <button onClick="{{ step2 }}" style="text-align: left; background: none; border: 0; border-top: 2px solid; padding: 18px 20px 18px 0; cursor: pointer; font-family: inherit; border-top-color: {{ bar2 }}; color: {{ tint2 }};">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; opacity: 0.55;">03</div>
+          <div style="font-size: 17px; margin-top: 7px;">Secure Hand-Off</div>
+        </button>
+        <button onClick="{{ step3 }}" style="text-align: left; background: none; border: 0; border-top: 2px solid; padding: 18px 20px 18px 0; cursor: pointer; font-family: inherit; border-top-color: {{ bar3 }}; color: {{ tint3 }};">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; opacity: 0.55;">04</div>
+          <div style="font-size: 17px; margin-top: 7px;">Govern</div>
+        </button>
+      </div>
+
+      <div style="margin-top: 40px;">
+        <div style="display: {{ show0 }}; grid-template-columns: minmax(0, 1fr); gap: 26px;">
+          <div>
+            <h3 style="font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif; font-weight: 500; font-size: 30px; line-height: 1.15; margin: 0 0 14px;">Collaborate and prep.</h3>
+            <p style="font-size: 16px; line-height: 1.65; color: #4A5F6D; margin: 0; max-width: 46em;">Edit text directly on PDFs without breaking margins. Leave inline notes, tag teammates, and black out sensitive PII before files leave your team.</p>
+          </div>
+          <div style="border: 1px solid rgba(14,36,51,0.12); background: #FFFFFF; min-height: 440px; box-shadow: 0 24px 50px rgba(14,36,51,0.10); display: flex; flex-direction: column; overflow: hidden;">
+        <div style="background: #16303F; padding: 11px 16px; display: flex; align-items: center; gap: 12px;">
+          <span style="display: flex; gap: 6px;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: rgba(232,237,239,0.28);"></span>
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: rgba(232,237,239,0.28);"></span>
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: rgba(232,237,239,0.28);"></span>
+          </span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #E8EDEF; background: rgba(232,237,239,0.08); border: 1px solid rgba(232,237,239,0.14); padding: 6px 12px;">Engagement-Letter_v3.pdf</span>
+          <span style="margin-left: auto; display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.12em; color: #15A8CE; border: 1px solid rgba(21,168,206,0.6); padding: 5px 10px;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #15A8CE; animation: df-blink 1.6s steps(1,end) infinite;"></span>LIVE</span>
+        </div>
+            <div style="border-bottom: 1px solid rgba(14,36,51,0.12); padding: 10px 16px; display: flex; align-items: center; gap: 8px;">
+              <span style="display: flex; align-items: center; gap: 7px; background: #0E2433; color: #F8F9FA; padding: 8px 12px; font-size: 12px;"><i data-lucide="pen-line" style="width: 13px; height: 13px; color: #15A8CE;"></i>Edit PDF Text</span>
+              <span style="display: flex; align-items: center; gap: 7px; border: 1px solid rgba(14,36,51,0.16); padding: 7px 11px; font-size: 12px; color: #4A5F6D;"><i data-lucide="message-square" style="width: 13px; height: 13px; color: #8FA3AF;"></i>Comment</span>
+              <span style="display: flex; align-items: center; gap: 7px; border: 1px solid rgba(14,36,51,0.16); padding: 7px 11px; font-size: 12px; color: #4A5F6D;"><i data-lucide="eye-off" style="width: 13px; height: 13px; color: #8FA3AF;"></i>Redact</span>
+              <span style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #5A7180;">PAGE 2 / 9</span>
+            </div>
+            <div style="flex: 1; background: #F1F4F5; padding: 20px 22px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(150px, 214px); gap: 16px;">
+              <div style="background: #FFFFFF; border: 1px solid rgba(14,36,51,0.10); padding: 22px 24px; box-sizing: border-box; position: relative; min-width: 0;">
+                <div style="font-size: 15px; font-weight: 500; margin-bottom: 14px;">3. Fees and Scope</div>
+                <span style="display: block; height: 7px; width: 94%; background: rgba(14,36,51,0.10); margin-bottom: 10px;"></span><span style="display: block; height: 7px; width: 78%; background: rgba(14,36,51,0.10); margin-bottom: 18px;"></span>
+                <div style="position: relative; border-left: 3px solid #7C5CFF; background: rgba(124,92,255,0.08); padding: 10px 13px; margin-bottom: 20px;">
+                  <span style="display: block; font-size: 13px; line-height: 1.6; overflow: hidden; white-space: nowrap; animation: df-type 7s cubic-bezier(.4,.1,.3,1) infinite;">Fees are invoiced monthly against the agreed scope</span>
+                  <span style="position: absolute; right: 12px; top: 12px; width: 2px; height: 15px; background: #7C5CFF; animation: df-blink 1s steps(1,end) infinite;"></span>
+                  <span style="position: absolute; right: 0; top: -24px; display: flex; align-items: center; gap: 7px; background: #7C5CFF; color: #FFFFFF; font-size: 11px; padding: 5px 11px; border-radius: 999px; white-space: nowrap; animation: df-pop 7s ease-out infinite;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #FFFFFF;"></span>David is typing…</span>
+                </div>
+                <span style="display: block; height: 7px; width: 88%; background: rgba(14,36,51,0.10); margin-bottom: 18px;"></span>
+                <div style="display: flex; align-items: end; gap: 14px;">
+                  <div>
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.12em; color: #5A7180; margin-bottom: 6px;">ANNUAL FEE CAP</div>
+                    <div style="position: relative; height: 16px; width: 148px;">
+                      <span style="position: absolute; inset: 0; font-size: 13px; color: #3F5462;">USD 480,000.00</span>
+                      <span style="position: absolute; left: 0; top: 0; height: 16px; background: #0E2433; animation: df-redact 7s ease-out infinite;"></span>
+                    </div>
+                  </div>
+                  <span style="display: flex; align-items: center; gap: 6px; background: rgba(23,138,86,0.12); color: #12703F; font-size: 11px; padding: 5px 10px; animation: df-pop 7s ease-out 0.9s infinite;"><i data-lucide="check" style="width: 12px; height: 12px;"></i>Permanently Redacted</span>
+                </div>
+              </div>
+              <div style="align-self: start; margin-top: 48px; background: #FFFFFF; border: 1px solid rgba(14,36,51,0.14); box-shadow: 0 16px 34px rgba(14,36,51,0.18); animation: df-pop 7s ease-out 0.45s infinite;">
+                <div style="display: flex; align-items: center; gap: 9px; padding: 12px 13px 7px;">
+                  <span style="width: 22px; height: 22px; border-radius: 50%; background: #2C5468; color: #E8EDEF; font-size: 9px; display: flex; align-items: center; justify-content: center;">JS</span>
+                  <span style="font-size: 12px;">Jane (Partner)</span>
+                  <span style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #8FA3AF;">NOW</span>
+                </div>
+                <p style="font-size: 12px; line-height: 1.5; color: #3F5462; margin: 0; padding: 0 13px 11px;">Keep the fee cap redacted in the copy the client committee sees.</p>
+                <div style="display: flex; gap: 8px; padding: 0 13px 13px;">
+                  <span style="flex: 1; text-align: center; border: 1px solid rgba(14,36,51,0.16); padding: 7px 0; font-size: 11px;">Reply</span>
+                  <span style="flex: 1; text-align: center; background: #15A8CE; color: #0E2433; padding: 8px 0; font-size: 11px;">Resolve</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display: {{ show1 }}; grid-template-columns: minmax(0, 1fr); gap: 26px;">
+          <div>
+            <h3 style="font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif; font-weight: 500; font-size: 30px; line-height: 1.15; margin: 0 0 14px;">Execute in the same tab.</h3>
+            <p style="font-size: 16px; line-height: 1.65; color: #4A5F6D; margin: 0; max-width: 46em;">Turn approved drafts into legally binding agreements instantly. Collect signatures without envelope caps or third-party redirects.</p>
+          </div>
+          <div style="border: 1px solid rgba(14,36,51,0.12); background: #FFFFFF; min-height: 440px; box-shadow: 0 24px 50px rgba(14,36,51,0.10); display: flex; flex-direction: column; overflow: hidden;">
+        <div style="background: #16303F; padding: 11px 16px; display: flex; align-items: center; gap: 12px;">
+          <span style="display: flex; gap: 6px;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: rgba(232,237,239,0.28);"></span>
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: rgba(232,237,239,0.28);"></span>
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: rgba(232,237,239,0.28);"></span>
+          </span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #E8EDEF; background: rgba(232,237,239,0.08); border: 1px solid rgba(232,237,239,0.14); padding: 6px 12px;">MSA_Final_Execution.pdf</span>
+          <span style="margin-left: auto; display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.12em; color: #15A8CE; border: 1px solid rgba(21,168,206,0.6); padding: 5px 10px;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #15A8CE; animation: df-blink 1.6s steps(1,end) infinite;"></span>LIVE</span>
+        </div>
+            <div style="border-bottom: 1px solid rgba(14,36,51,0.12); padding: 10px 16px; display: flex; align-items: center; gap: 8px;">
+              <span style="display: flex; align-items: center; gap: 7px; background: #0E2433; color: #F8F9FA; padding: 8px 12px; font-size: 12px;"><i data-lucide="pen-tool" style="width: 13px; height: 13px; color: #15A8CE;"></i>Request Signature</span>
+              <span style="display: flex; align-items: center; gap: 7px; border: 1px solid rgba(14,36,51,0.16); padding: 7px 11px; font-size: 12px; color: #4A5F6D;"><i data-lucide="type" style="width: 13px; height: 13px; color: #8FA3AF;"></i>Edit PDF Text</span>
+              <span style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #5A7180;">PAGE 9 / 9</span>
+            </div>
+            <div style="flex: 1; background: #F1F4F5; padding: 20px 22px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(160px, 208px); gap: 16px;">
+              <div style="background: #FFFFFF; border: 1px solid rgba(14,36,51,0.10); padding: 22px 24px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                  <div style="font-size: 15px; font-weight: 500; margin-bottom: 14px;">12. Execution</div>
+                  <span style="display: block; height: 7px; width: 92%; background: rgba(14,36,51,0.10); margin-bottom: 10px;"></span><span style="display: block; height: 7px; width: 84%; background: rgba(14,36,51,0.10); margin-bottom: 10px;"></span><span style="display: block; height: 7px; width: 66%; background: rgba(14,36,51,0.10); margin-bottom: 0px;"></span>
+                </div>
+                <div>
+                  <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.12em; color: #5A7180; margin-bottom: 8px;">SIGNATURE — CLIENT</div>
+                  <div style="height: 66px; border: 2px solid #15A8CE; background: rgba(21,168,206,0.07); display: flex; align-items: center; padding: 0 16px; overflow: hidden;">
+                    <span style="font-family: 'Segoe Script', 'Brush Script MT', cursive; font-size: 26px; color: #0E2433; animation: df-sign 7s ease-out infinite;">A. Whitfield</span>
+                  </div>
+                  <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; margin-top: 10px;">
+                    <span style="display: flex; align-items: center; gap: 6px; background: rgba(23,138,86,0.12); color: #12703F; font-size: 11px; padding: 6px 11px; border-radius: 999px; white-space: nowrap; animation: df-pop 7s ease-out 1.1s infinite;"><i data-lucide="check" style="width: 12px; height: 12px;"></i>Legally Binding (ESIGN Compliant)</span>
+                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #5A7180;">14:22 UTC</span>
+                  </div>
+                </div>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid rgba(14,36,51,0.12); padding: 16px;">
+                <div style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">Signing order</div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.12em; color: #5A7180; margin-bottom: 14px;">2 OF 2 COMPLETE</div>
+                <div style="display: grid; gap: 10px;">
+                  <div style="display: flex; align-items: center; gap: 10px; border: 1px solid rgba(14,36,51,0.12); padding: 11px 12px;">
+                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #5A7180;">1st</span>
+                    <span style="font-size: 12px;">Client</span>
+                    <i data-lucide="check-circle-2" style="width: 15px; height: 15px; color: #12703F; margin-left: auto;"></i>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 10px; border: 1px solid rgba(21,168,206,0.5); background: rgba(21,168,206,0.07); padding: 11px 12px;">
+                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #5A7180;">2nd</span>
+                    <span style="font-size: 12px;">Executive Partner</span>
+                    <span style="margin-left: auto; display: flex; animation: df-pop 7s ease-out 1.6s infinite;"><i data-lucide="check-circle-2" style="width: 15px; height: 15px; color: #12703F;"></i></span>
+                  </div>
+                </div>
+                <div style="margin-top: 16px; text-align: center; background: #0E2433; color: #F8F9FA; font-size: 11px; padding: 10px 0;">Sealed and filed</div>
+                <div style="text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #5A7180; margin-top: 8px;">NO ENVELOPE CAPS</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display: {{ show2 }}; grid-template-columns: minmax(0, 1fr); gap: 26px;">
+          <div>
+            <h3 style="font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif; font-weight: 500; font-size: 30px; line-height: 1.15; margin: 0 0 14px;">Hand off securely.</h3>
+            <p style="font-size: 16px; line-height: 1.65; color: #4A5F6D; margin: 0; max-width: 46em;">Share confidential offer letters, financial audits, or vendor contracts via secure links with customized password, view-only, and print restrictions.</p>
+          </div>
+          <div style="border: 1px solid rgba(14,36,51,0.12); background: #FFFFFF; min-height: 440px; box-shadow: 0 24px 50px rgba(14,36,51,0.10); display: flex; flex-direction: column; overflow: hidden;">
+        <div style="background: #16303F; padding: 11px 16px; display: flex; align-items: center; gap: 12px;">
+          <span style="display: flex; gap: 6px;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: rgba(232,237,239,0.28);"></span>
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: rgba(232,237,239,0.28);"></span>
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: rgba(232,237,239,0.28);"></span>
+          </span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #E8EDEF; background: rgba(232,237,239,0.08); border: 1px solid rgba(232,237,239,0.14); padding: 6px 12px;">Board-Pack_Q3.pdf</span>
+          <span style="margin-left: auto; display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.12em; color: #15A8CE; border: 1px solid rgba(21,168,206,0.6); padding: 5px 10px;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #15A8CE; animation: df-blink 1.6s steps(1,end) infinite;"></span>LIVE</span>
+        </div>
+            <div style="border-bottom: 1px solid rgba(14,36,51,0.12); padding: 10px 16px; display: flex; align-items: center; gap: 8px;">
+              <span style="display: flex; align-items: center; gap: 7px; background: #0E2433; color: #F8F9FA; padding: 8px 12px; font-size: 12px;"><i data-lucide="link" style="width: 13px; height: 13px; color: #15A8CE;"></i>Share Secure Link</span>
+              <span style="display: flex; align-items: center; gap: 7px; border: 1px solid rgba(14,36,51,0.16); padding: 7px 11px; font-size: 12px; color: #4A5F6D;"><i data-lucide="pen-tool" style="width: 13px; height: 13px; color: #8FA3AF;"></i>Request Signature</span>
+              <span style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #5A7180;">VIEW ONLY</span>
+            </div>
+            <div style="flex: 1; position: relative; background: #F1F4F5; padding: 20px 22px;">
+              <div style="background: #FFFFFF; border: 1px solid rgba(14,36,51,0.10); padding: 22px 24px; height: 100%; box-sizing: border-box; position: relative; overflow: hidden;">
+                <div style="font-size: 15px; font-weight: 500; margin-bottom: 14px;">Appendix C — Consolidated Figures</div>
+                <span style="display: block; height: 7px; width: 92%; background: rgba(14,36,51,0.10); margin-bottom: 10px;"></span><span style="display: block; height: 7px; width: 76%; background: rgba(14,36,51,0.10); margin-bottom: 10px;"></span><span style="display: block; height: 7px; width: 88%; background: rgba(14,36,51,0.10); margin-bottom: 10px;"></span><span style="display: block; height: 7px; width: 64%; background: rgba(14,36,51,0.10); margin-bottom: 10px;"></span><span style="display: block; height: 7px; width: 82%; background: rgba(14,36,51,0.10); margin-bottom: 0px;"></span>
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 22px; letter-spacing: 0.18em; color: rgba(14,36,51,0.07); transform: rotate(-24deg); white-space: nowrap;">CONFIDENTIAL — VIEW ONLY</span>
+              </div>
+              <span style="position: absolute; inset: 20px 22px; background: rgba(14,36,51,0.42); animation: df-scalein 7s ease-out infinite;"></span>
+              <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: min(320px, calc(100% - 56px)); max-height: calc(100% - 44px); overflow: hidden; background: #FFFFFF; border: 1px solid rgba(14,36,51,0.16); box-shadow: 0 22px 48px rgba(14,36,51,0.28); animation: df-modalin 7s ease-out 0.2s infinite;">
+                <div style="display: flex; align-items: center; gap: 9px; padding: 15px 18px; border-bottom: 1px solid rgba(14,36,51,0.12);">
+                  <i data-lucide="shield-check" style="width: 16px; height: 16px; color: #0F6F8A;"></i>
+                  <span style="font-size: 14px; font-weight: 500;">Sharing guardrails</span>
+                </div>
+                <div style="padding: 4px 18px 16px;">
+                  <div style="display: flex; align-items: center; gap: 12px; border-bottom: 1px solid rgba(14,36,51,0.10); padding: 13px 0;">
+                    <div style="display: grid; gap: 3px;">
+                      <span style="font-size: 13px;">View only</span>
+                      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: #5A7180;">DOWNLOAD, PRINT, COPY OFF</span>
+                    </div>
+                    <span style="margin-left: auto; width: 38px; height: 20px; border-radius: 999px; background: #D5DDE2; display: flex; align-items: center; padding: 0 3px; animation: df-track 7s ease-out 0.5s infinite;">
+                      <span style="width: 14px; height: 14px; border-radius: 50%; background: #FFFFFF; animation: df-knob 7s cubic-bezier(.3,.1,.2,1) 0.5s infinite;"></span>
+                    </span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 12px; border-bottom: 1px solid rgba(14,36,51,0.10); padding: 13px 0;">
+                    <div style="display: grid; gap: 3px;">
+                      <span style="font-size: 13px;">Password protection</span>
+                      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: #5A7180;">••••••••</span>
+                    </div>
+                    <span style="margin-left: auto; width: 38px; height: 20px; border-radius: 999px; background: #D5DDE2; display: flex; align-items: center; padding: 0 3px; animation: df-track 7s ease-out 1.1s infinite;">
+                      <span style="width: 14px; height: 14px; border-radius: 50%; background: #FFFFFF; animation: df-knob 7s cubic-bezier(.3,.1,.2,1) 1.1s infinite;"></span>
+                    </span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 12px; border-bottom: 1px solid rgba(14,36,51,0.10); padding: 13px 0;">
+                    <div style="display: grid; gap: 3px;">
+                      <span style="font-size: 13px;">Auto-expiration</span>
+                      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: #5A7180;">7 DAYS</span>
+                    </div>
+                    <span style="margin-left: auto; width: 38px; height: 20px; border-radius: 999px; background: #D5DDE2; display: flex; align-items: center; padding: 0 3px; animation: df-track 7s ease-out 1.7s infinite;">
+                      <span style="width: 14px; height: 14px; border-radius: 50%; background: #FFFFFF; animation: df-knob 7s cubic-bezier(.3,.1,.2,1) 1.7s infinite;"></span>
+                    </span>
+                  </div>
+                  <div style="margin-top: 16px; display: flex; align-items: center; gap: 10px;">
+                    <span style="flex: 1; text-align: center; background: #0E2433; color: #F8F9FA; font-size: 12px; padding: 11px 0;">Create link</span>
+                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #5A7180;">3 CONTROLS ON</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display: {{ show3 }}; grid-template-columns: minmax(0, 1fr); gap: 26px;">
+          <div>
+            <h3 style="font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif; font-weight: 500; font-size: 30px; line-height: 1.15; margin: 0 0 14px;">Govern after sending.</h3>
+            <p style="font-size: 16px; line-height: 1.65; color: #4A5F6D; margin: 0; max-width: 46em;">Retain total control after sending. Pull back access in one click, auto-expire links, and review complete time-stamped activity logs.</p>
+          </div>
+          <div style="border: 1px solid rgba(14,36,51,0.12); background: #FFFFFF; min-height: 440px; box-shadow: 0 24px 50px rgba(14,36,51,0.10); display: flex; flex-direction: column; overflow: hidden;">
+        <div style="background: #16303F; padding: 11px 16px; display: flex; align-items: center; gap: 12px;">
+          <span style="display: flex; gap: 6px;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: rgba(232,237,239,0.28);"></span>
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: rgba(232,237,239,0.28);"></span>
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: rgba(232,237,239,0.28);"></span>
+          </span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #E8EDEF; background: rgba(232,237,239,0.08); border: 1px solid rgba(232,237,239,0.14); padding: 6px 12px;">Discovery-Bundle_03.pdf</span>
+          <span style="margin-left: auto; display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.12em; color: #15A8CE; border: 1px solid rgba(21,168,206,0.6); padding: 5px 10px;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #15A8CE; animation: df-blink 1.6s steps(1,end) infinite;"></span>LIVE</span>
+        </div>
+            <div style="border-bottom: 1px solid rgba(14,36,51,0.12); padding: 10px 16px; display: flex; align-items: center; gap: 8px;">
+              <span style="display: flex; align-items: center; gap: 7px; background: #0E2433; color: #F8F9FA; padding: 8px 12px; font-size: 12px;"><i data-lucide="history" style="width: 13px; height: 13px; color: #15A8CE;"></i>Governance & Audit</span>
+              <span style="display: flex; align-items: center; gap: 7px; border: 1px solid rgba(14,36,51,0.16); padding: 7px 11px; font-size: 12px; color: #4A5F6D;"><i data-lucide="link" style="width: 13px; height: 13px; color: #8FA3AF;"></i>Share Secure Link</span>
+              <span style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #5A7180;">OWNER: ADMIN</span>
+            </div>
+            <div style="flex: 1; background: #F1F4F5; padding: 20px 22px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(170px, 240px); gap: 16px;">
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                <div style="background: #FFFFFF; border: 1px solid rgba(14,36,51,0.10); flex: 1; display: flex; flex-direction: column; overflow: hidden;">
+                  <div style="background: #B03030; color: #FFFFFF; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; padding: 9px 14px; display: flex; align-items: center; gap: 8px; animation: df-pop 7s ease-out 1.9s infinite;">
+                    <i data-lucide="ban" style="width: 12px; height: 12px;"></i>STATUS: LINK TERMINATED
+                  </div>
+                  <div style="padding: 18px 20px;">
+                    <div style="font-size: 14px; font-weight: 500; margin-bottom: 12px;">Exhibit 4 — Correspondence</div>
+                    <span style="display: block; height: 7px; width: 90%; background: rgba(14,36,51,0.10); margin-bottom: 9px;"></span><span style="display: block; height: 7px; width: 72%; background: rgba(14,36,51,0.10); margin-bottom: 9px;"></span><span style="display: block; height: 7px; width: 84%; background: rgba(14,36,51,0.10); margin-bottom: 9px;"></span><span style="display: block; height: 7px; width: 58%; background: rgba(14,36,51,0.10); margin-bottom: 0px;"></span>
+                  </div>
+                </div>
+                <div style="background: #FFFFFF; border: 1px solid rgba(14,36,51,0.12); padding: 16px 18px; display: grid; gap: 12px; min-width: 0;">
+                  <div style="display: grid; gap: 3px;">
+                    <span style="font-size: 13px; font-weight: 500;">Kill switch</span>
+                    <span style="font-size: 11px; line-height: 1.45; color: #5A7180;">Ends access for every recipient at once.</span>
+                  </div>
+                  <span style="display: flex; align-items: center; justify-content: center; gap: 9px; background: #B03030; color: #FFFFFF; font-size: 12px; padding: 11px 14px; text-align: center; animation: df-kill 7s ease-out infinite, df-press 7s ease-out infinite;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #FFFFFF;"></span>Revoke Link Access Instantly</span>
+                </div>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid rgba(14,36,51,0.12); padding: 16px 18px; min-width: 0;">
+                <div style="font-size: 13px; font-weight: 500; margin-bottom: 3px;">Audit trail</div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.12em; color: #5A7180; margin-bottom: 8px;">TIME-STAMPED</div>
+                  <div style="display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 8px; align-items: start; padding: 11px 0; border-bottom: 1px solid rgba(14,36,51,0.10); animation: df-pop 7s ease-out 0.5s infinite;">
+                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #5A7180; padding-top: 2px;">10:14 AM</span>
+                    <span style="font-size: 12px; line-height: 1.45; color: #0F172A;">Link opened by client@firm.com</span>
+                  </div>
+                  <div style="display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 8px; align-items: start; padding: 11px 0; border-bottom: 1px solid rgba(14,36,51,0.10); animation: df-pop 7s ease-out 1.2s infinite;">
+                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #5A7180; padding-top: 2px;">10:15 AM</span>
+                    <span style="font-size: 12px; line-height: 1.45; color: #0F172A;">E-signature executed</span>
+                  </div>
+                  <div style="display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 8px; align-items: start; padding: 11px 0; border-bottom: 1px solid rgba(14,36,51,0.10); animation: df-pop 7s ease-out 1.9s infinite;">
+                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #5A7180; padding-top: 2px;">10:30 AM</span>
+                    <span style="font-size: 12px; line-height: 1.45; color: #B03030;">Access revoked by Admin (Access Blocked)</span>
+                  </div>
+                <div style="margin-top: 14px; font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #5A7180;">EXPORTABLE AS CSV</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="audiences" data-screen-label="Who it is for" style="background: #0E2433; color: #E8EDEF; overflow: hidden;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 96px 40px 48px; display: flex; align-items: end; justify-content: space-between; gap: 40px;">
+      <div data-rise style="max-width: 40em;">
+        <h2 style="font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif; font-weight: 500; font-size: 48px; line-height: 1.04; letter-spacing: -0.028em; margin: 0 0 18px;">Built for high-stakes workflows across every department.</h2>
+        <p style="font-size: 18px; line-height: 1.55; color: #A9BCC6; margin: 0; max-width: 34em; text-wrap: pretty;">Whether you are managing confidential court filings, candidate offer letters, or financial audit packages, DocuFence gives your team one secure perimeter to edit, review, sign, and share.</p>
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <button onClick="{{ stripPrev }}" aria-label="Previous" style="width: 44px; height: 44px; background: none; border: 1px solid rgba(232,237,239,0.28); color: #E8EDEF; font-size: 16px; cursor: pointer; font-family: inherit;" style-hover="border-color: #15A8CE; color: #15A8CE;">&#8592;</button>
+        <button onClick="{{ stripNext }}" aria-label="Next" style="width: 44px; height: 44px; background: none; border: 1px solid rgba(232,237,239,0.28); color: #E8EDEF; font-size: 16px; cursor: pointer; font-family: inherit;" style-hover="border-color: #15A8CE; color: #15A8CE;">&#8594;</button>
+      </div>
+    </div>
+    <div ref="{{ stripRef }}" style="display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 40px 96px; scrollbar-width: none;">
+        <a href="DocuFence For Legal.dc.html" style="flex: 0 0 620px; scroll-snap-align: center; position: relative; display: block; height: 520px; color: #E8EDEF; background: #132B3B url('https://images.unsplash.com/photo-1758518731462-d091b0b4ed0d?auto=format&fit=crop&w=1400&q=70') center/cover no-repeat; background-blend-mode: luminosity; border: 1px solid rgba(232,237,239,0.10); overflow: hidden;" style-hover="border-color: rgba(21,168,206,0.6);">
+          <span style="position: absolute; top: 26px; left: 30px; z-index: 2; background: #FFFFFF; color: #0E2433; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em; padding: 8px 14px; border-radius: 999px;">LEGAL</span>
+          <span style="position: absolute; inset: auto 0 0 0; height: 62%; background: linear-gradient(180deg, rgba(6,18,26,0) 0%, rgba(6,18,26,0.88) 62%);"></span>
+          <span style="position: absolute; left: 30px; right: 30px; bottom: 30px; display: block;">
+            <span style="display: block; font-size: 34px; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 12px; max-width: 13em;">Client files that cannot leave the perimeter.</span>
+            <span style="display: block; font-size: 15px; line-height: 1.55; color: #A9BCC6; max-width: 30em;">Engagement letters, NDAs, and matter files. Redline, sign, and share without a copy escaping into an email thread.</span>
+          </span>
+        </a>
+        <a href="DocuFence For HR.dc.html" style="flex: 0 0 620px; scroll-snap-align: center; position: relative; display: block; height: 520px; color: #E8EDEF; background: #16303F url('https://images.unsplash.com/photo-1758691737246-95bf8f09a997?auto=format&fit=crop&w=1400&q=70') center/cover no-repeat; background-blend-mode: luminosity; border: 1px solid rgba(232,237,239,0.10); overflow: hidden;" style-hover="border-color: rgba(21,168,206,0.6);">
+          <span style="position: absolute; top: 26px; left: 30px; z-index: 2; background: #FFFFFF; color: #0E2433; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em; padding: 8px 14px; border-radius: 999px;">HR</span>
+          <span style="position: absolute; inset: auto 0 0 0; height: 62%; background: linear-gradient(180deg, rgba(6,18,26,0) 0%, rgba(6,18,26,0.88) 62%);"></span>
+          <span style="position: absolute; left: 30px; right: 30px; bottom: 30px; display: block;">
+            <span style="display: block; font-size: 34px; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 12px; max-width: 13em;">Personal data about real people.</span>
+            <span style="display: block; font-size: 15px; line-height: 1.55; color: #A9BCC6; max-width: 30em;">Offer letters, contracts, and employee records. Send them for signature without exposing them to the wider company.</span>
+          </span>
+        </a>
+        <a href="DocuFence For Finance.dc.html" style="flex: 0 0 620px; scroll-snap-align: center; position: relative; display: block; height: 520px; color: #E8EDEF; background: #122734 url('https://images.unsplash.com/photo-1767424412548-1a1ac7f4b9bc?auto=format&fit=crop&w=1400&q=70') center/cover no-repeat; background-blend-mode: luminosity; border: 1px solid rgba(232,237,239,0.10); overflow: hidden;" style-hover="border-color: rgba(21,168,206,0.6);">
+          <span style="position: absolute; top: 26px; left: 30px; z-index: 2; background: #FFFFFF; color: #0E2433; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em; padding: 8px 14px; border-radius: 999px;">FINANCE</span>
+          <span style="position: absolute; inset: auto 0 0 0; height: 62%; background: linear-gradient(180deg, rgba(6,18,26,0) 0%, rgba(6,18,26,0.88) 62%);"></span>
+          <span style="position: absolute; left: 30px; right: 30px; bottom: 30px; display: block;">
+            <span style="display: block; font-size: 34px; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 12px; max-width: 13em;">Numbers that need a paper trail.</span>
+            <span style="display: block; font-size: 15px; line-height: 1.55; color: #A9BCC6; max-width: 30em;">Statements, audits, and approvals. Every open and every signature is time-stamped and yours to review.</span>
+          </span>
+        </a>
+        <a href="DocuFence For Operations.dc.html" style="flex: 0 0 620px; scroll-snap-align: center; position: relative; display: block; height: 520px; color: #E8EDEF; background: #15323F url('https://images.unsplash.com/photo-1761735486549-7a6a04e67061?auto=format&fit=crop&w=1400&q=70') center/cover no-repeat; background-blend-mode: luminosity; border: 1px solid rgba(232,237,239,0.10); overflow: hidden;" style-hover="border-color: rgba(21,168,206,0.6);">
+          <span style="position: absolute; top: 26px; left: 30px; z-index: 2; background: #FFFFFF; color: #0E2433; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em; padding: 8px 14px; border-radius: 999px;">OPERATIONS</span>
+          <span style="position: absolute; inset: auto 0 0 0; height: 62%; background: linear-gradient(180deg, rgba(6,18,26,0) 0%, rgba(6,18,26,0.88) 62%);"></span>
+          <span style="position: absolute; left: 30px; right: 30px; bottom: 30px; display: block;">
+            <span style="display: block; font-size: 34px; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 12px; max-width: 13em;">Documents moving through a lot of hands.</span>
+            <span style="display: block; font-size: 15px; line-height: 1.55; color: #A9BCC6; max-width: 30em;">Vendor forms, policies, and renewals. One current version, routed and revocable, instead of five attachments.</span>
+          </span>
+        </a>
+        <a href="DocuFence For Procurement.dc.html" style="flex: 0 0 620px; scroll-snap-align: center; position: relative; display: block; height: 520px; color: #E8EDEF; background: #14303E url('https://images.unsplash.com/photo-1775163024488-e88e4a71179f?auto=format&fit=crop&w=1400&q=70') center/cover no-repeat; background-blend-mode: luminosity; border: 1px solid rgba(232,237,239,0.10); overflow: hidden;" style-hover="border-color: rgba(21,168,206,0.6);">
+          <span style="position: absolute; top: 26px; left: 30px; z-index: 2; background: #FFFFFF; color: #0E2433; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em; padding: 8px 14px; border-radius: 999px;">PROCUREMENT</span>
+          <span style="position: absolute; inset: auto 0 0 0; height: 62%; background: linear-gradient(180deg, rgba(6,18,26,0) 0%, rgba(6,18,26,0.88) 62%);"></span>
+          <span style="position: absolute; left: 30px; right: 30px; bottom: 30px; display: block;">
+            <span style="display: block; font-size: 34px; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 12px; max-width: 13em;">Agreements with people outside the company.</span>
+            <span style="display: block; font-size: 15px; line-height: 1.55; color: #A9BCC6; max-width: 30em;">Vendor contracts, SOWs, and NDAs. Send one link per supplier, watch who opened it, and pull it back when the deal changes.</span>
+          </span>
+        </a>
+    </div>
+  </section>
+
+  <section data-screen-label="Five tools into one" style="background: #FFFFFF; color: #0F172A; border-top: 1px solid rgba(14,36,51,0.10);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 100px 40px 104px;">
+      <h2 data-rise style="font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif; font-weight: 500; font-size: 58px; line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 16px; max-width: 12em;">Five tools for one document. <span style="color: #8FA3AF;">Now one.</span></h2>
+      <p data-rise style="font-size: 18px; line-height: 1.6; color: #3F5462; margin: 0 0 56px; max-width: 34em;">Stop paying for fragmented apps that scatter your team's files.</p>
+
+      <div data-rise style="display: grid; grid-template-columns: minmax(0, 1fr) 108px minmax(0, 1fr); gap: 0; align-items: center;">
+
+        <div style="border: 1px solid rgba(14,36,51,0.14); background: #FCFCFD;">
+          <div style="display: flex; align-items: center; gap: 10px; height: 48px; box-sizing: border-box; padding: 0 24px; border-bottom: 1px solid rgba(14,36,51,0.12);">
+            <i data-lucide="layers" style="width: 16px; height: 16px; color: #8A3A4C;"></i>
+            <span style="font-size: 14px;">The fragmented stack</span>
+            <span style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: #8A3A4C;">5 SUBSCRIPTIONS</span>
+          </div>
+        <div style="display: grid; grid-template-columns: 20px minmax(0, 130px) minmax(0, 1fr); gap: 16px; align-items: center; height: 96px; box-sizing: border-box; padding: 0 24px; border-bottom: 1px solid rgba(14,36,51,0.10);">
+          <i data-lucide="x" style="width: 17px; height: 17px; color: #C2405A;"></i>
+          <span style="font-size: 17px; color: #0F172A;">PDF editor</span>
+          <span style="justify-self: start; font-size: 14px; line-height: 1.4; color: #8A3A4C; background: rgba(194,64,90,0.09); border: 1px solid rgba(194,64,90,0.22); padding: 6px 11px;">✕ Breaks layout &amp; margins</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 20px minmax(0, 130px) minmax(0, 1fr); gap: 16px; align-items: center; height: 96px; box-sizing: border-box; padding: 0 24px; border-bottom: 1px solid rgba(14,36,51,0.10);">
+          <i data-lucide="x" style="width: 17px; height: 17px; color: #C2405A;"></i>
+          <span style="font-size: 17px; color: #0F172A;">Word</span>
+          <span style="justify-self: start; font-size: 14px; line-height: 1.4; color: #8A3A4C; background: rgba(194,64,90,0.09); border: 1px solid rgba(194,64,90,0.22); padding: 6px 11px;">✕ Endless re-exports &amp; version chaos</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 20px minmax(0, 130px) minmax(0, 1fr); gap: 16px; align-items: center; height: 96px; box-sizing: border-box; padding: 0 24px; border-bottom: 1px solid rgba(14,36,51,0.10);">
+          <i data-lucide="x" style="width: 17px; height: 17px; color: #C2405A;"></i>
+          <span style="font-size: 17px; color: #0F172A;">Email</span>
+          <span style="justify-self: start; font-size: 14px; line-height: 1.4; color: #8A3A4C; background: rgba(194,64,90,0.09); border: 1px solid rgba(194,64,90,0.22); padding: 6px 11px;">✕ Feedback lost in reply chains</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 20px minmax(0, 130px) minmax(0, 1fr); gap: 16px; align-items: center; height: 96px; box-sizing: border-box; padding: 0 24px; border-bottom: 1px solid rgba(14,36,51,0.10);">
+          <i data-lucide="x" style="width: 17px; height: 17px; color: #C2405A;"></i>
+          <span style="font-size: 17px; color: #0F172A;">eSign portal</span>
+          <span style="justify-self: start; font-size: 14px; line-height: 1.4; color: #8A3A4C; background: rgba(194,64,90,0.09); border: 1px solid rgba(194,64,90,0.22); padding: 6px 11px;">✕ Extra logins &amp; per-envelope fees</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 20px minmax(0, 130px) minmax(0, 1fr); gap: 16px; align-items: center; height: 96px; box-sizing: border-box; padding: 0 24px;">
+          <i data-lucide="x" style="width: 17px; height: 17px; color: #C2405A;"></i>
+          <span style="font-size: 17px; color: #0F172A;">Cloud drive</span>
+          <span style="justify-self: start; font-size: 14px; line-height: 1.4; color: #8A3A4C; background: rgba(194,64,90,0.09); border: 1px solid rgba(194,64,90,0.22); padding: 6px 11px;">✕ Zero control over sent links</span>
+        </div>
+        </div>
+
+        <div style="height: 528px; display: block;">
+          <div style="position: relative; margin-top: 48px; height: 480px;">
+            <svg viewBox="0 0 100 480" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%;">
+              <path d="M0 48 C34 48 30 240 56 240" fill="none" stroke="rgba(21,168,206,0.5)" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+              <path d="M0 144 C34 144 30 240 56 240" fill="none" stroke="rgba(21,168,206,0.5)" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+              <path d="M0 240 L56 240" fill="none" stroke="rgba(21,168,206,0.5)" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+              <path d="M0 336 C34 336 30 240 56 240" fill="none" stroke="rgba(21,168,206,0.5)" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+              <path d="M0 432 C34 432 30 240 56 240" fill="none" stroke="rgba(21,168,206,0.5)" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+              <path d="M56 240 L92 240" fill="none" stroke="#15A8CE" stroke-width="3" vector-effect="non-scaling-stroke"></path>
+              <polygon points="92,231 100,240 92,249" fill="#15A8CE"></polygon>
+            </svg>
+            <span style="position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); background: #FFFFFF; font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #0F6F8A; padding: 6px 8px; border: 1px solid rgba(21,168,206,0.4); text-align: center; line-height: 1.3; white-space: nowrap;">MERGE<br />INTO</span>
+          </div>
+        </div>
+
+        <div style="position: relative;">
+          <span style="position: absolute; left: -6%; top: 4%; width: 112%; height: 92%; background: radial-gradient(circle at 50% 45%, rgba(21,168,206,0.30), rgba(21,168,206,0.08) 48%, rgba(21,168,206,0) 74%); filter: blur(52px); pointer-events: none;"></span>
+          <div style="position: relative; background: #0E2433; border: 1px solid #2C4453; box-shadow: 0 34px 68px rgba(14,36,51,0.34), 0 0 44px rgba(21,168,206,0.18);">
+            <div style="display: flex; align-items: center; gap: 10px; padding: 15px 24px; border-bottom: 1px solid rgba(232,237,239,0.14);">
+              <i data-lucide="lock" style="width: 16px; height: 16px; color: #46C3E0;"></i>
+              <span style="font-size: 14px; color: #F2F7F9;">DocuFence workspace</span>
+              <span style="margin-left: auto; display: flex; align-items: center; gap: 7px; font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.12em; color: #5FD3EE; background: rgba(21,168,206,0.12); border: 1px solid rgba(21,168,206,0.42); padding: 5px 9px;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #46C3E0; animation: df-blink 1.8s steps(1,end) infinite;"></span>LIVE</span>
+            </div>
+            <div style="padding: 4px 24px 8px;">
+          <div style="display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 14px; align-items: start; padding: 17px 0; border-bottom: 1px solid rgba(232,237,239,0.12);">
+            <i data-lucide="check" style="width: 17px; height: 17px; color: #46E0A8; margin-top: 3px;"></i>
+            <div style="min-width: 0;">
+              <div style="font-size: 16px; color: #F2F7F9; margin-bottom: 4px;">Native PDF editing</div>
+              <div style="font-size: 14px; line-height: 1.45; color: #A9BCC6;">Fix text without layout breaks</div>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 14px; align-items: start; padding: 17px 0; border-bottom: 1px solid rgba(232,237,239,0.12);">
+            <i data-lucide="check" style="width: 17px; height: 17px; color: #46E0A8; margin-top: 3px;"></i>
+            <div style="min-width: 0;">
+              <div style="font-size: 16px; color: #F2F7F9; margin-bottom: 4px;">Single live document</div>
+              <div style="font-size: 14px; line-height: 1.45; color: #A9BCC6;">No re-exports, no version chaos</div>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 14px; align-items: start; padding: 17px 0; border-bottom: 1px solid rgba(232,237,239,0.12);">
+            <i data-lucide="check" style="width: 17px; height: 17px; color: #46E0A8; margin-top: 3px;"></i>
+            <div style="min-width: 0;">
+              <div style="font-size: 16px; color: #F2F7F9; margin-bottom: 4px;">In-app team notes</div>
+              <div style="font-size: 14px; line-height: 1.45; color: #A9BCC6;">Threaded comments on the document</div>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 14px; align-items: start; padding: 17px 0; border-bottom: 1px solid rgba(232,237,239,0.12);">
+            <i data-lucide="check" style="width: 17px; height: 17px; color: #46E0A8; margin-top: 3px;"></i>
+            <div style="min-width: 0;">
+              <div style="font-size: 16px; color: #F2F7F9; margin-bottom: 4px;">Built-in signatures</div>
+              <div style="font-size: 14px; line-height: 1.45; color: #A9BCC6;">Sign in place, with no envelope fees</div>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 14px; align-items: start; padding: 17px 0; ">
+            <i data-lucide="check" style="width: 17px; height: 17px; color: #46E0A8; margin-top: 3px;"></i>
+            <div style="min-width: 0;">
+              <div style="font-size: 16px; color: #F2F7F9; margin-bottom: 4px;">1-click revocation</div>
+              <div style="font-size: 14px; line-height: 1.45; color: #A9BCC6;">Kill access anytime, anywhere</div>
+            </div>
+          </div>
+            </div>
+            <div style="background: rgba(21,168,206,0.10); border-top: 1px solid rgba(21,168,206,0.28); padding: 14px 24px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: #5FD3EE; text-align: center;">ONE VERSION. ALWAYS CURRENT. ALWAYS SECURE.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="security" data-screen-label="Security" style="background: #0E2433; color: #E8EDEF;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 104px 40px 108px;">
+      <div data-rise style="display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 60px;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: #15A8CE; margin-bottom: 28px;">
+            <span style="width: 6px; height: 6px; background: #15A8CE; display: inline-block;"></span>
+            SECURITY
+          </div>
+          <h2 style="font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif; font-weight: 500; font-size: 56px; line-height: 1.02; letter-spacing: -0.028em; margin: 0; max-width: 13em;">Security you can point to, <span style="color: #7C93A1;">not a badge you have to trust.</span></h2>
+        </div>
+        <a href="DocuFence Security.dc.html" style="font-size: 15px; white-space: nowrap; color: #E8EDEF; border-bottom: 1px solid rgba(21,168,206,0.7); padding-bottom: 3px;" style-hover="color: #15A8CE;">Read the full security page</a>
+      </div>
+
+      <div data-rise style="display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); gap: 56px; align-items: start;">
+        <div style="position: relative;">
+          <span style="position: absolute; left: -8%; top: 6%; width: 116%; height: 88%; background: radial-gradient(circle at 40% 40%, rgba(21,168,206,0.34), rgba(21,168,206,0.10) 45%, rgba(21,168,206,0) 72%); filter: blur(56px); pointer-events: none;"></span>
+          <div style="position: relative; background: rgba(255,255,255,0.055); backdrop-filter: blur(16px); border: 1px solid rgba(232,237,239,0.18); box-shadow: 0 36px 72px rgba(0,0,0,0.48);">
+            <div style="display: flex; align-items: center; gap: 12px; padding: 16px 20px; border-bottom: 1px solid rgba(232,237,239,0.12);">
+              <i data-lucide="lock" style="width: 16px; height: 16px; color: #46C3E0;"></i>
+              <span style="font-size: 15px;">Share settings</span>
+              <span style="margin-left: auto; display: flex; align-items: center; gap: 7px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: #5FD3EE; background: rgba(21,168,206,0.12); border: 1px solid rgba(21,168,206,0.42); padding: 5px 10px;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #46C3E0; animation: df-blink 1.8s steps(1,end) infinite;"></span>LINK ACTIVE</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 11px 20px; border-bottom: 1px solid rgba(232,237,239,0.10); font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #8FA9B6;">
+              <span>Q3-REPORT.PDF</span>
+              <span style="display: flex; align-items: center; gap: 7px;"><i data-lucide="shield-check" style="width: 12px; height: 12px; color: #46C3E0;"></i>END-TO-END ENCRYPTED</span>
+            </div>
+            <div style="padding: 8px 20px 22px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 15px 0; border-bottom: 1px solid rgba(232,237,239,0.10);">
+              <span style="font-size: 15px; color: #DCE6EB;">Can view</span>
+              <span style="width: 40px; height: 21px; border-radius: 999px; background: #15A8CE; box-shadow: 0 0 14px rgba(21,168,206,0.55); display: flex; align-items: center; justify-content: flex-end; padding: 0 3px; box-sizing: border-box;"><span style="width: 15px; height: 15px; border-radius: 50%; background: #FFFFFF; display: block;"></span></span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 15px 0; border-bottom: 1px solid rgba(232,237,239,0.10);">
+              <span style="font-size: 15px; color: #DCE6EB;">Can download</span>
+              <span style="width: 40px; height: 21px; border-radius: 999px; border: 1px solid rgba(232,237,239,0.24); display: flex; align-items: center; padding: 0 3px; box-sizing: border-box;"><span style="width: 13px; height: 13px; border-radius: 50%; background: rgba(232,237,239,0.32); display: block;"></span></span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 15px 0; border-bottom: 1px solid rgba(232,237,239,0.10);">
+              <span style="font-size: 15px; color: #DCE6EB;">Can forward</span>
+              <span style="width: 40px; height: 21px; border-radius: 999px; border: 1px solid rgba(232,237,239,0.24); display: flex; align-items: center; padding: 0 3px; box-sizing: border-box;"><span style="width: 13px; height: 13px; border-radius: 50%; background: rgba(232,237,239,0.32); display: block;"></span></span>
+            </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 15px 0; border-bottom: 1px solid rgba(232,237,239,0.10);">
+                <span style="font-size: 15px; color: #DCE6EB;">Link expires</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #5FD3EE; background: rgba(21,168,206,0.12); border: 1px solid rgba(21,168,206,0.42); padding: 5px 10px;">IN 7 DAYS</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0 2px;">
+                <span style="font-size: 15px; color: #DCE6EB;">Access</span>
+                <span style="display: flex; align-items: center; gap: 8px; font-size: 13px; border: 1px solid rgba(239,68,68,0.62); color: #FF9494; padding: 8px 14px; cursor: pointer;" style-hover="background: #EF4444; color: #FFFFFF; border-color: #EF4444;"><i data-lucide="link-2-off" style="width: 13px; height: 13px;"></i>Revoke</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="position: relative; z-index: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px;">
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(232,237,239,0.12); padding: 22px 22px 24px; display: grid; gap: 12px; align-content: start;" style-hover="border-color: rgba(21,168,206,0.55);">
+              <i data-lucide="lock" style="width: 19px; height: 19px; color: #46C3E0;"></i>
+              <div style="font-size: 17px; line-height: 1.3;">Encrypted in transit and at rest</div>
+              <p style="font-size: 14px; line-height: 1.6; color: #9DB4C0; margin: 0;">Encrypted on the way to us and while it sits with us.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(232,237,239,0.12); padding: 22px 22px 24px; display: grid; gap: 12px; align-content: start;" style-hover="border-color: rgba(21,168,206,0.55);">
+              <i data-lucide="shield-off" style="width: 19px; height: 19px; color: #46C3E0;"></i>
+              <div style="font-size: 17px; line-height: 1.3;">We never train AI on your documents</div>
+              <p style="font-size: 14px; line-height: 1.6; color: #9DB4C0; margin: 0;">Your files train no model, ours or anyone else’s.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(232,237,239,0.12); padding: 22px 22px 24px; display: grid; gap: 12px; align-content: start;" style-hover="border-color: rgba(21,168,206,0.55);">
+              <i data-lucide="sliders-horizontal" style="width: 19px; height: 19px; color: #46C3E0;"></i>
+              <div style="font-size: 17px; line-height: 1.3;">Control view, download, and forward</div>
+              <p style="font-size: 14px; line-height: 1.6; color: #9DB4C0; margin: 0;">Set what each recipient can do, one permission at a time.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(232,237,239,0.12); padding: 22px 22px 24px; display: grid; gap: 12px; align-content: start;" style-hover="border-color: rgba(21,168,206,0.55);">
+              <i data-lucide="link-2-off" style="width: 19px; height: 19px; color: #46C3E0;"></i>
+              <div style="font-size: 17px; line-height: 1.3;">Revoke access after sending</div>
+              <p style="font-size: 14px; line-height: 1.6; color: #9DB4C0; margin: 0;">Switch the link off and it stops opening. Immediately.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(232,237,239,0.12); padding: 22px 22px 24px; display: grid; gap: 12px; align-content: start;" style-hover="border-color: rgba(21,168,206,0.55);">
+              <i data-lucide="history" style="width: 19px; height: 19px; color: #46C3E0;"></i>
+              <div style="font-size: 17px; line-height: 1.3;">An audit trail of who opened what</div>
+              <p style="font-size: 14px; line-height: 1.6; color: #9DB4C0; margin: 0;">Time-stamped access logs you can read without asking anyone.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(232,237,239,0.12); padding: 22px 22px 24px; display: grid; gap: 12px; align-content: start;" style-hover="border-color: rgba(21,168,206,0.55);">
+              <i data-lucide="download" style="width: 19px; height: 19px; color: #46C3E0;"></i>
+              <div style="font-size: 17px; line-height: 1.3;">Your documents stay yours</div>
+              <p style="font-size: 14px; line-height: 1.6; color: #9DB4C0; margin: 0;">Leave whenever you want and take every file with you.</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="FAQ" style="background: #EDF0F1; border-top: 1px solid rgba(14,36,51,0.08); border-bottom: 1px solid rgba(14,36,51,0.08);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 92px 40px 96px; display: grid; grid-template-columns: 320px 1fr; gap: 72px;">
+      <h2 data-rise style="font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif; font-weight: 500; font-size: 48px; line-height: 1.04; letter-spacing: -0.028em; margin: 0;">Questions people ask</h2>
+      <div data-rise style="border-top: 1px solid rgba(14,36,51,0.16);">
+        <sc-for list="{{ faqs }}" as="item" hint-placeholder-count="6">
+          <div style="border-bottom: 1px solid rgba(14,36,51,0.16);">
+            <button onClick="{{ item.toggle }}" style="width: 100%; background: none; border: 0; padding: 22px 0; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; cursor: pointer; font-family: inherit; font-size: 18px; color: #0E2433; text-align: left;">
+              {{ item.q }}
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 16px; color: #0E2433;">{{ item.mark }}</span>
+            </button>
+            <div style="display: {{ item.show }}; padding: 0 60px 24px 0;">
+              <p style="font-size: 16px; line-height: 1.65; color: #4A5F6D; margin: 0; max-width: 40em;">{{ item.a }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" data-screen-label="Closing CTA" style="background: #0E2433; color: #E8EDEF;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 116px 40px; text-align: center;">
+      <h2 data-rise style="font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif; font-weight: 500; font-size: 64px; line-height: 1.0; letter-spacing: -0.03em; margin: 0 auto 40px; max-width: 13em;">Put your documents in one place you control.</h2>
+      <div data-rise style="display: flex; gap: 14px; justify-content: center;">
+        <a href="#signup" style="font-size: 15px; color: #0E2433; background: #F8F9FA; padding: 15px 32px;" style-hover="background: #FFFFFF;">Sign Up</a>
+        <a href="#book" style="font-size: 15px; color: #E8EDEF; padding: 14px 28px; border: 1px solid rgba(232,237,239,0.28);" style-hover="border-color: rgba(232,237,239,0.6);">Book a Call</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background: #0E2433; color: #7C93A1; border-top: 1px solid rgba(232,237,239,0.10);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 64px 40px 40px; display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 40px;">
+      <div>
+        <div style="display: flex; align-items: center; gap: 10px; color: #E8EDEF;">
+          <div style="width: 12px; height: 12px; background: #15A8CE;"></div>
+          <span style="font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif; font-size: 20px;">DocuFence</span>
+        </div>
+        <p style="font-size: 14px; line-height: 1.6; margin: 16px 0 0; max-width: 22em;">The secure document workspace. Edit, sign, and share in one place.</p>
+      </div>
+      <div style="display: grid; gap: 11px; font-size: 14px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: #E8EDEF;">PRODUCT</div>
+        <a href="#editing" style="color: #7C93A1;">Editing</a>
+        <a href="#annotation" style="color: #7C93A1;">Annotation</a>
+        <a href="#signatures" style="color: #7C93A1;">Signatures</a>
+        <a href="#sharing" style="color: #7C93A1;">Secure sharing</a>
+      </div>
+      <div style="display: grid; gap: 11px; font-size: 14px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: #E8EDEF;">USE CASES</div>
+        <a href="DocuFence For Legal.dc.html" style="color: #7C93A1;">Legal</a>
+        <a href="DocuFence For HR.dc.html" style="color: #7C93A1;">HR</a>
+        <a href="DocuFence For Finance.dc.html" style="color: #7C93A1;">Finance</a>
+        <a href="DocuFence For Operations.dc.html" style="color: #7C93A1;">Operations</a>
+        <a href="DocuFence For Procurement.dc.html" style="color: #7C93A1;">Procurement</a>
+      </div>
+      <div style="display: grid; gap: 11px; font-size: 14px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: #E8EDEF;">RESOURCES</div>
+        <a href="DocuFence Blog.dc.html" style="color: #7C93A1;">Blogs</a>
+        <a href="DocuFence Guides.dc.html" style="color: #7C93A1;">Guides</a>
+        <a href="DocuFence Security.dc.html" style="color: #7C93A1;">Security</a>
+        <a href="#pricing" style="color: #7C93A1;">Pricing</a>
+      </div>
+      <div style="display: grid; gap: 11px; font-size: 14px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: #E8EDEF;">COMPANY</div>
+        <a href="#contact" style="color: #7C93A1;">Contact</a>
+        <a href="DocuFence Privacy.dc.html" style="color: #7C93A1;">Privacy Policy</a>
+        <a href="DocuFence Terms.dc.html" style="color: #7C93A1;">Terms and Conditions</a>
+      </div>
+    </div>
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px 44px; font-size: 13px;">© 2026 DocuFence</div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;scrollMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;stepAutoplay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;faqDefaultOpen&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:0,&quot;min&quot;:-1,&quot;max&quot;:5,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Behavior&quot;}}">
+class Component extends DCLogic {
+  state = { step: 0, open: 0, menu: false };
+
+  renderIcons() {
+    if (window.lucide) window.lucide.createIcons();
+    else setTimeout(() => this.renderIcons(), 300);
+  }
+
+  componentDidUpdate() { this.renderIcons(); }
+
+  componentDidMount() {
+    this.renderIcons();
+    if (this.props.scrollMotion === false) return;
+    const nodes = Array.from(document.querySelectorAll('[data-rise]'));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        e.target.style.opacity = '';
+        e.target.style.animation = 'df-rise 700ms cubic-bezier(.2,.7,.2,1) both';
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    const hidden = [];
+    nodes.forEach((n) => {
+      if (n.getBoundingClientRect().top > window.innerHeight * 0.9) {
+        n.style.opacity = '0';
+        hidden.push(n);
+        io.observe(n);
+      }
+    });
+    this._io = io;
+    // fail-safe: if the observer never reports (e.g. no scroll container), un-hide.
+    let fired = false;
+    const seen = () => { fired = true; };
+    document.addEventListener('scroll', seen, { once: true, passive: true });
+    this._safety = setTimeout(() => {
+      if (fired) return;
+      hidden.forEach((n) => { n.style.opacity = ''; });
+    }, 4000);
+
+    if (this.props.stepAutoplay) {
+      this._t = setInterval(() => this.setState((s) => ({ step: (s.step + 1) % 4 })), 5000);
+    }
+    if (typeof this.props.faqDefaultOpen === 'number') this.setState({ open: this.props.faqDefaultOpen });
+  }
+
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+    if (this._t) clearInterval(this._t);
+    if (this._safety) clearTimeout(this._safety);
+  }
+
+  setStep(n) {
+    if (this._t) { clearInterval(this._t); this._t = null; }
+    this.setState({ step: n });
+  }
+
+  renderVals() {
+    const s = this.state.step;
+    const data = [
+      ['Do recipients need an account to view or sign?', 'No. They open a link, read the document, and sign. No signup, no download.'],
+      ['Do you train AI on my documents?', 'No. Your files are never used to train any model. They are yours and they stay yours.'],
+      ['What happens if formatting breaks when I import a PDF?', 'It should not. You edit the PDF as it is instead of converting it to another format and back, so the layout stays where you put it.'],
+      ['Can I revoke access after I have shared something?', 'Yes. Turn a link off and it stops working, even for people who already opened it.'],
+      ['Does this replace Word?', 'For documents you send out, usually yes. Edit, mark up, sign, and share without leaving the file. For long-form drafting from scratch, keep writing where you like and bring the file in.'],
+      ['What does it cost?', 'Pricing depends on team size and how you work. Book a call and we will quote you.']
+    ];
+    const scrollStrip = (dir) => {
+      const el = this._strip;
+      if (el) el.scrollBy({ left: dir * 636, behavior: 'smooth' });
+    };
+    const vals = {
+      menuShow: this.state.menu ? 'block' : 'none',
+      resShow: this.state.res ? 'block' : 'none',
+      openRes: () => this.setState({ res: true }),
+      closeRes: () => this.setState({ res: false }),
+      openMenu: () => this.setState({ menu: true }),
+      closeMenu: () => this.setState({ menu: false }),
+      stripRef: (el) => { this._strip = el; },
+      stripPrev: () => scrollStrip(-1),
+      stripNext: () => scrollStrip(1),
+      faqs: data.map(([q, a], i) => ({
+        q, a,
+        mark: this.state.open === i ? '\u2212' : '+',
+        show: this.state.open === i ? 'block' : 'none',
+        toggle: () => this.setState((st) => ({ open: st.open === i ? -1 : i }))
+      }))
+    };
+    for (let i = 0; i < 4; i++) {
+      vals['step' + i] = () => this.setStep(i);
+      vals['bar' + i] = s === i ? '#15A8CE' : 'rgba(14,36,51,0)';
+      vals['tint' + i] = s === i ? '#0E2433' : '#8FA3AF';
+      vals['show' + i] = s === i ? 'grid' : 'none';
+    }
+    return vals;
+  }
+}
+</script>
+</body>
+</html>
