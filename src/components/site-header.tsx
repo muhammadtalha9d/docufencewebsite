@@ -44,7 +44,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/90 backdrop-blur-[10px]">
       <div className="mx-auto flex h-[68px] max-w-[1180px] items-center justify-between gap-7 px-10">
         <Link href="/" className="flex items-center gap-2.5 text-ink">
-          <span className="h-[13px] w-[13px] bg-accent" />
+            <img src="fav-icon.png" alt="" className="h-8 w-auto"/>
           <span className="text-[21px] tracking-[-0.01em]">DocuFence</span>
         </Link>
 
@@ -123,11 +123,11 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex flex-shrink-0 items-center gap-4 whitespace-nowrap">
-          <Link href="/signup" className="text-[15px] text-ink-soft">
+          <Link href="https://dev-app.docufence.com/signup" className="text-[15px] text-ink-soft">
             Sign Up
           </Link>
           <Link
-            href="/contact"
+            href="https://calendar.app.google/WbdzvM2oayoF9G6X7 "
             className="bg-ink px-5 py-[11px] text-[15px] text-paper hover:bg-black"
           >
             Book a Call

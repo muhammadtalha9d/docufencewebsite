@@ -101,13 +101,13 @@ export function UseCasePage({ data }: { data: UseCaseData }) {
               <Reveal className="grid justify-items-start gap-3">
                 <div className="flex items-center gap-3">
                   <Link
-                    href="/contact"
+                    href="https://calendar.app.google/WbdzvM2oayoF9G6X7"
                     className="whitespace-nowrap bg-ink px-[34px] py-[17px] text-base text-paper hover:bg-black"
                   >
                     Book a Call
                   </Link>
                   <Link
-                    href="/signup"
+                    href="https://dev-app.docufence.com/signup"
                     className="whitespace-nowrap border border-ink/[0.22] px-[26px] py-4 text-base text-ink hover:border-ink/55"
                   >
                     Sign Up
@@ -529,13 +529,13 @@ export function UseCasePage({ data }: { data: UseCaseData }) {
             </div>
             <div className="flex flex-shrink-0 items-center gap-3">
               <Link
-                href="/contact"
+                href="https://calendar.app.google/WbdzvM2oayoF9G6X7"
                 className="whitespace-nowrap bg-accent px-[30px] py-[15px] text-base text-ink hover:bg-[#3FBEDD]"
               >
                 Book a Call
               </Link>
               <Link
-                href="/signup"
+                href="https://dev-app.docufence.com/signup"
                 className="whitespace-nowrap border-b border-mist/40 pb-[3px] text-base text-mist hover:text-accent"
               >
                 Sign Up
@@ -628,13 +628,13 @@ export function UseCasePage({ data }: { data: UseCaseData }) {
           <Reveal className="grid justify-items-center gap-3.5">
             <div className="flex items-center gap-4">
               <Link
-                href="/contact"
+                href="https://calendar.app.google/WbdzvM2oayoF9G6X7"
                 className="bg-accent px-[34px] py-4 text-base text-ink hover:bg-[#3FBEDD]"
               >
                 Book a Call
               </Link>
               <Link
-                href="/signup"
+                href="https://dev-app.docufence.com/signup"
                 className="border-b border-mist/40 pb-[3px] text-base text-mist hover:text-accent"
               >
                 Sign Up

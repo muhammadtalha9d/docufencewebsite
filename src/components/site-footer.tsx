@@ -32,7 +32,7 @@ const COLUMNS: { title: string; links: { href: string; label: string }[] }[] = [
   {
     title: "COMPANY",
     links: [
-      { href: "/contact", label: "Contact" },
+      { href: "https://calendar.app.google/WbdzvM2oayoF9G6X7", label: "Contact" },
       { href: "/privacy", label: "Privacy Policy" },
       { href: "/terms", label: "Terms and Conditions" },
     ],
@@ -45,7 +45,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-[1180px] grid-cols-[1.4fr_repeat(4,1fr)] gap-10 px-10 pb-10 pt-16">
         <div>
           <div className="flex items-center gap-2.5 text-mist">
-            <span className="h-3 w-3 bg-accent" />
+              <img src="fav-icon.png" alt="" className="h-8 w-auto"/>
             <span className="text-xl">DocuFence</span>
           </div>
           <p className="mt-4 max-w-[22em] text-sm leading-[1.6]">

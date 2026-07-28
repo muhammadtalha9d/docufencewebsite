@@ -392,13 +392,13 @@ export default function ProductPage() {
           </Reveal>
           <Reveal className="flex justify-center gap-3.5">
             <Link
-              href="/signup"
+              href="https://dev-app.docufence.com/signup"
               className="bg-paper px-8 py-[15px] text-[15px] text-ink hover:bg-white"
             >
               Sign Up
             </Link>
             <Link
-              href="/contact"
+              href="https://calendar.app.google/WbdzvM2oayoF9G6X7"
               className="border border-mist/[0.28] px-7 py-3.5 text-[15px] text-mist hover:border-mist/60"
             >
               Book a Call

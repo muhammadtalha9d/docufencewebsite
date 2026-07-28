@@ -25,13 +25,13 @@ export function Hero() {
           </p>
           <div className="flex items-center gap-3.5">
             <Link
-              href="/signup"
+              href="https://dev-app.docufence.com/signup"
               className="whitespace-nowrap bg-ink px-8 py-4 text-[15px] text-paper hover:bg-black"
             >
               Sign Up
             </Link>
             <Link
-              href="/contact"
+              href="https://calendar.app.google/WbdzvM2oayoF9G6X7"
               className="whitespace-nowrap border border-ink/20 px-7 py-[15px] text-[15px] text-ink hover:border-ink/45"
             >
               Book a Call

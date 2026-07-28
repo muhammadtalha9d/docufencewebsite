@@ -172,7 +172,7 @@ export function BlogArticle({ post, related }: { post: BlogPost; related: BlogPo
             </div>
             <div className="grid justify-items-center gap-2.5">
               <Link
-                href="/contact"
+                href="https://calendar.app.google/WbdzvM2oayoF9G6X7"
                 className="whitespace-nowrap bg-accent px-8 py-4 text-base text-ink hover:bg-[#3FBEDD]"
               >
                 Book a Call

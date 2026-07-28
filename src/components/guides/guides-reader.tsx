@@ -242,7 +242,7 @@ export function GuidesReader() {
             </div>
             <div className="grid flex-none justify-items-center gap-2.5">
               <Link
-                href="/contact"
+                href="https://calendar.app.google/WbdzvM2oayoF9G6X7"
                 className="whitespace-nowrap bg-accent px-8 py-4 text-base text-ink hover:bg-[#3FBEDD]"
               >
                 Book a Call

@@ -105,7 +105,7 @@ export function LegalDocPage({
               Security page
             </Link>
             <Link
-              href="/contact"
+              href="https://calendar.app.google/WbdzvM2oayoF9G6X7"
               className="whitespace-nowrap bg-paper px-7 py-3.5 text-[15px] text-ink hover:bg-white"
             >
               Book a Call
