@@ -44,7 +44,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/90 backdrop-blur-[10px]">
       <div className="mx-auto flex h-[68px] max-w-[1180px] items-center justify-between gap-7 px-10">
         <Link href="/" className="flex items-center gap-2.5 text-ink">
-            <img src="fav-icon.png" alt="" className="h-8 w-auto"/>
+            <img src="/Fav-icon.png" alt="" className="h-8 w-auto"/>
           <span className="text-[21px] tracking-[-0.01em]">DocuFence</span>
         </Link>
 

@@ -46,7 +46,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-[1180px] grid-cols-[1.4fr_repeat(4,1fr)] gap-10 px-10 pb-10 pt-16">
         <div>
           <div className="flex items-center gap-2.5 text-mist">
-              <img src="fav-icon.png" alt="" className="h-8 w-auto"/>
+              <img src="/Fav-Icon.png" alt="" className="h-8 w-auto"/>
             <span className="text-xl">DocuFence</span>
           </div>
           <p className="mt-4 max-w-[22em] text-sm leading-[1.6]">
