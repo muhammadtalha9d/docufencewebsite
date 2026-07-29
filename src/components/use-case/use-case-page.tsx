@@ -220,7 +220,7 @@ export function UseCasePage({ data }: { data: UseCaseData }) {
               {data.docsSubcopy}
             </p>
             <Link
-              href="/product"
+              href="https://dev-app.docufence.com/signup"
               className="inline-flex items-center gap-2.5 border border-ink/[0.22] px-[22px] py-3.5 text-[15px] text-ink hover:border-ink/55"
             >
               Explore Platform

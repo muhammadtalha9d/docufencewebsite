@@ -28,12 +28,12 @@ const RESOURCES = [
     description: "Latest articles, guides, and industry insights",
     icon: Newspaper,
   },
-  {
-    href: "/resources/guides",
-    label: "Guides",
-    description: "In-depth operational and compliance playbooks",
-    icon: BookOpen,
-  },
+  // {
+  //   href: "/resources/guides",
+  //   label: "Guides",
+  //   description: "In-depth operational and compliance playbooks",
+  //   icon: BookOpen,
+  // },
 ];
 
 export function SiteHeader() {
@@ -84,9 +84,9 @@ export function SiteHeader() {
           <Link href="/security" className="text-ink-soft">
             Security
           </Link>
-          <Link href="/pricing" className="text-ink-soft">
-            Pricing
-          </Link>
+          {/*<Link href="/pricing" className="text-ink-soft">*/}
+          {/*  Pricing*/}
+          {/*</Link>*/}
 
           <span
             onMouseEnter={() => setResOpen(true)}
