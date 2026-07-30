@@ -4,8 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-52TT6DSC');
+    </script>
 </head>
 <body>
+<noscript
+><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-52TT6DSC"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+></iframe
+></noscript>
+
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,32 +61,32 @@
         <span style="font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif; font-size: 21px; letter-spacing: -0.01em;">DocuFence</span>
       </div>
       <nav style="display: flex; align-items: center; gap: 24px; font-size: 14px; color: #4A5F6D; white-space: nowrap; min-width: 0;">
-        <a href="DocuFence Product.dc.html" style="color: #4A5F6D;">Product</a>
+        <a href="DocuFence Product.dc.html" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'nav_click',link_text:'Product',link_location:'header_nav'})" style="color: #4A5F6D;">Product</a>
         <span onMouseEnter="{{ openMenu }}" onMouseLeave="{{ closeMenu }}" style="position: relative; display: inline-flex; align-items: center; gap: 6px; cursor: default; color: #0E2433;">
           Use cases
           <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
           <span style="position: absolute; top: 100%; left: -18px; padding-top: 14px; display: {{ menuShow }};">
             <span style="display: grid; min-width: 250px; background: #FFFFFF; border: 1px solid rgba(14,36,51,0.14); box-shadow: 0 20px 46px rgba(14,36,51,0.14);">
-              <a href="DocuFence For Legal.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0E2433; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;"><i data-lucide="scale" style="width: 16px; height: 16px; color: #15A8CE;"></i>Legal</a>
-              <a href="DocuFence For HR.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0E2433; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;"><i data-lucide="users-round" style="width: 16px; height: 16px; color: #15A8CE;"></i>HR</a>
-              <a href="DocuFence For Finance.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0E2433; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;"><i data-lucide="line-chart" style="width: 16px; height: 16px; color: #15A8CE;"></i>Finance</a>
-              <a href="DocuFence For Operations.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0E2433; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;"><i data-lucide="workflow" style="width: 16px; height: 16px; color: #15A8CE;"></i>Operations</a>
-              <a href="DocuFence For Procurement.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0E2433;" style-hover="background: #F1F4F5;"><i data-lucide="handshake" style="width: 16px; height: 16px; color: #15A8CE;"></i>Procurement</a>
+              <a href="DocuFence For Legal.dc.html" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'nav_click',link_text:'Legal',link_location:'header_nav_use_cases'})" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0E2433; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;"><i data-lucide="scale" style="width: 16px; height: 16px; color: #15A8CE;"></i>Legal</a>
+              <a href="DocuFence For HR.dc.html" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'nav_click',link_text:'HR',link_location:'header_nav_use_cases'})" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0E2433; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;"><i data-lucide="users-round" style="width: 16px; height: 16px; color: #15A8CE;"></i>HR</a>
+              <a href="DocuFence For Finance.dc.html" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'nav_click',link_text:'Finance',link_location:'header_nav_use_cases'})" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0E2433; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;"><i data-lucide="line-chart" style="width: 16px; height: 16px; color: #15A8CE;"></i>Finance</a>
+              <a href="DocuFence For Operations.dc.html" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'nav_click',link_text:'Operations',link_location:'header_nav_use_cases'})" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0E2433; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;"><i data-lucide="workflow" style="width: 16px; height: 16px; color: #15A8CE;"></i>Operations</a>
+              <a href="DocuFence For Procurement.dc.html" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'nav_click',link_text:'Procurement',link_location:'header_nav_use_cases'})" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: #0E2433;" style-hover="background: #F1F4F5;"><i data-lucide="handshake" style="width: 16px; height: 16px; color: #15A8CE;"></i>Procurement</a>
             </span>
           </span>
         </span>
-        <a href="DocuFence Security.dc.html" style="color: #4A5F6D;">Security</a>
-        <a href="#pricing" style="color: #4A5F6D;">Pricing</a>
+        <a href="DocuFence Security.dc.html" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'nav_click',link_text:'Security',link_location:'header_nav'})" style="color: #4A5F6D;">Security</a>
+        <a href="#pricing" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'nav_click',link_text:'Pricing',link_location:'header_nav'})" style="color: #4A5F6D;">Pricing</a>
         <span onMouseEnter="{{ openRes }}" onMouseLeave="{{ closeRes }}" style="position: relative; display: inline-flex; align-items: center; gap: 6px; cursor: default; color: #4A5F6D;">
           Resources
           <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
           <span style="position: absolute; top: 100%; left: -18px; padding-top: 14px; display: {{ resShow }};">
             <span style="display: grid; min-width: 310px; background: #FFFFFF; border: 1px solid rgba(14,36,51,0.14); box-shadow: 0 20px 46px rgba(14,36,51,0.14);">
-              <a href="DocuFence Blog.dc.html" style="display: grid; gap: 5px; padding: 15px 18px; color: #0E2433; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;">
+              <a href="DocuFence Blog.dc.html" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'nav_click',link_text:'Blogs',link_location:'header_nav_resources'})" style="display: grid; gap: 5px; padding: 15px 18px; color: #0E2433; border-bottom: 1px solid rgba(14,36,51,0.08);" style-hover="background: #F1F4F5;">
                 <span style="display: flex; align-items: center; gap: 10px; font-size: 14px;"><i data-lucide="newspaper" style="width: 16px; height: 16px; color: #15A8CE;"></i>Blogs</span>
                 <span style="font-size: 12px; line-height: 1.45; color: #5A7180; padding-left: 26px;">Latest articles, guides, and industry insights</span>
               </a>
-              <a href="DocuFence Guides.dc.html" style="display: grid; gap: 5px; padding: 15px 18px; color: #0E2433;" style-hover="background: #F1F4F5;">
+              <a href="DocuFence Guides.dc.html" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'nav_click',link_text:'Guides',link_location:'header_nav_resources'})" style="display: grid; gap: 5px; padding: 15px 18px; color: #0E2433;" style-hover="background: #F1F4F5;">
                 <span style="display: flex; align-items: center; gap: 10px; font-size: 14px;"><i data-lucide="book-open" style="width: 16px; height: 16px; color: #15A8CE;"></i>Guides</span>
                 <span style="font-size: 12px; line-height: 1.45; color: #5A7180; padding-left: 26px;">In-depth operational and compliance playbooks</span>
               </a>
@@ -74,8 +95,8 @@
         </span>
       </nav>
       <div style="display: flex; align-items: center; gap: 14px; flex-shrink: 0; white-space: nowrap;">
-        <a href="https://calendar.app.google/WbdzvM2oayoF9G6X7" style="font-size: 14px; color: #0E2433; padding: 9px 14px; border: 1px solid rgba(14,36,51,0.18);">Book a Call</a>
-        <a href="https://dev-app.docufence.com/signup" style="font-size: 14px; color: #F8F9FA; background: #0E2433; padding: 10px 18px;" style-hover="background: #000000;">Sign Up</a>
+        <a href="https://calendar.app.google/WbdzvM2oayoF9G6X7" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'cta_click',button_text:'Book a Call',button_location:'header_nav'})" style="font-size: 14px; color: #0E2433; padding: 9px 14px; border: 1px solid rgba(14,36,51,0.18);">Book a Call</a>
+        <a href="https://dev-app.docufence.com/signup" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'cta_click',button_text:'Sign Up',button_location:'header_nav'})" style="font-size: 14px; color: #F8F9FA; background: #0E2433; padding: 10px 18px;" style-hover="background: #000000;">Sign Up</a>
       </div>
     </div>
   </header>
@@ -90,8 +111,8 @@
       <div style="display: grid; grid-template-columns: 1fr auto; gap: 56px; align-items: end;">
         <p data-rise style="font-size: 19px; line-height: 1.55; color: #4A5F6D; max-width: 34em; margin: 0; text-wrap: pretty;">Your daily workflow shouldn't require four different subscriptions and unsafe email chains. DocuFence brings native editing, redlining, e-signatures, and zero-trust sharing into a single secure perimeter, so your team stops losing hours to tool-switching and keeps company data locked down.</p>
         <div data-rise style="display: flex; align-items: center; gap: 14px;">
-          <a href="https://dev-app.docufence.com/signup" style="font-size: 15px; color: #F8F9FA; background: #0E2433; padding: 16px 32px; white-space: nowrap;" style-hover="background: #000000;">Sign Up</a>
-          <a href="https://calendar.app.google/WbdzvM2oayoF9G6X7" style="font-size: 15px; color: #0E2433; padding: 15px 28px; border: 1px solid rgba(14,36,51,0.20); white-space: nowrap;" style-hover="border-color: rgba(14,36,51,0.45);">Book a Call</a>
+          <a href="https://dev-app.docufence.com/signup" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'cta_click',button_text:'Sign Up',button_location:'hero'})" style="font-size: 15px; color: #F8F9FA; background: #0E2433; padding: 16px 32px; white-space: nowrap;" style-hover="background: #000000;">Sign Up</a>
+          <a href="https://calendar.app.google/WbdzvM2oayoF9G6X7" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'cta_click',button_text:'Book a Call',button_location:'hero'})" style="font-size: 15px; color: #0E2433; padding: 15px 28px; border: 1px solid rgba(14,36,51,0.20); white-space: nowrap;" style-hover="border-color: rgba(14,36,51,0.45);">Book a Call</a>
         </div>
       </div>
     </div>
@@ -784,8 +805,8 @@
     <div style="max-width: 1180px; margin: 0 auto; padding: 116px 40px; text-align: center;">
       <h2 data-rise style="font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif; font-weight: 500; font-size: 64px; line-height: 1.0; letter-spacing: -0.03em; margin: 0 auto 40px; max-width: 13em;">Put your documents in one place you control.</h2>
       <div data-rise style="display: flex; gap: 14px; justify-content: center;">
-        <a href="https://dev-app.docufence.com/signup" style="font-size: 15px; color: #0E2433; background: #F8F9FA; padding: 15px 32px;" style-hover="background: #FFFFFF;">Sign Up</a>
-        <a href="https://calendar.app.google/WbdzvM2oayoF9G6X7" style="font-size: 15px; color: #E8EDEF; padding: 14px 28px; border: 1px solid rgba(232,237,239,0.28);" style-hover="border-color: rgba(232,237,239,0.6);">Book a Call</a>
+        <a href="https://dev-app.docufence.com/signup" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'cta_click',button_text:'Sign Up',button_location:'closing_cta'})" style="font-size: 15px; color: #0E2433; background: #F8F9FA; padding: 15px 32px;" style-hover="background: #FFFFFF;">Sign Up</a>
+        <a href="https://calendar.app.google/WbdzvM2oayoF9G6X7" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'cta_click',button_text:'Book a Call',button_location:'closing_cta'})" style="font-size: 15px; color: #E8EDEF; padding: 14px 28px; border: 1px solid rgba(232,237,239,0.28);" style-hover="border-color: rgba(232,237,239,0.6);">Book a Call</a>
       </div>
     </div>
   </section>
@@ -823,7 +844,7 @@
       </div>
       <div style="display: grid; gap: 11px; font-size: 14px;">
         <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: #E8EDEF;">COMPANY</div>
-        <a href="https://calendar.app.google/WbdzvM2oayoF9G6X7" style="color: #7C93A1;">Contact</a>
+        <a href="https://calendar.app.google/WbdzvM2oayoF9G6X7" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'footer_click',link_text:'Contact',link_location:'footer'})" style="color: #7C93A1;">Contact</a>
         <a href="DocuFence Privacy.dc.html" style="color: #7C93A1;">Privacy Policy</a>
         <a href="DocuFence Terms.dc.html" style="color: #7C93A1;">Terms and Conditions</a>
       </div>
