@@ -44,7 +44,7 @@ export function SiteHeader() {
                     className="flex items-center gap-2.5 text-ink cursor-pointer"
                     onClick={() => trackEvent("header_logo_press")}
                 >
-                    <img src="/Fav-icon.png" alt="" className="h-8 w-auto" />
+                    <img src="/Fav-Icon.png" alt="" className="h-8 w-auto" />
                     <span className="text-[21px] tracking-[-0.01em]">DocuFence</span>
                 </Link>
 
