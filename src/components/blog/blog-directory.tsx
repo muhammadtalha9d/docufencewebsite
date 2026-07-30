@@ -38,12 +38,12 @@ export function BlogDirectory({ posts }: { posts: BlogPost[] }) {
 
     const handleCategoryClick = (cat: string) => {
         setCategory(cat);
-        trackEvent("nav_click", cat, "blog_category_filter");
+        trackEvent("blog_category_filter_press");
     };
 
     const handleClearQuery = () => {
         setQuery("");
-        trackEvent("feature_click", "Clear Search Query", "blog_search");
+        trackEvent("blog_search_clear_press");
     };
 
     return (
@@ -110,7 +110,7 @@ export function BlogDirectory({ posts }: { posts: BlogPost[] }) {
                     <Reveal
                         as={Link}
                         href={`/resources/blogs/${featured.slug}`}
-                        onClick={() => trackEvent("nav_click", featured.title, "blog_featured_post")}
+                        onClick={() => trackEvent("blog_featured_post_press")}
                         className="grid grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] border border-ink/[0.13] bg-white text-ink shadow-[0_20px_44px_rgba(14,36,51,0.08)] hover:border-accent/60 cursor-pointer"
                     >
                         <div className="min-h-[360px] border-r border-ink/10">
@@ -118,12 +118,12 @@ export function BlogDirectory({ posts }: { posts: BlogPost[] }) {
                         </div>
                         <div className="p-11">
                             <div className="mb-[22px] flex items-center gap-3">
-                <span className="bg-ink px-2.5 py-1.5 font-mono text-[10px] tracking-[0.14em] text-paper">
-                  FEATURED
-                </span>
+                                <span className="bg-ink px-2.5 py-1.5 font-mono text-[10px] tracking-[0.14em] text-paper">
+                                    FEATURED
+                                </span>
                                 <span className="border border-accent/50 px-2.5 py-[5px] font-mono text-[10px] tracking-[0.14em] text-link">
-                  {featured.category.toUpperCase()}
-                </span>
+                                    {featured.category.toUpperCase()}
+                                </span>
                             </div>
                             <div className="mb-4 text-[36px] font-medium leading-[1.1] tracking-[-0.025em]">
                                 {featured.title}
@@ -132,15 +132,15 @@ export function BlogDirectory({ posts }: { posts: BlogPost[] }) {
                                 {featured.summary}
                             </div>
                             <div className="flex items-center gap-3.5 border-t border-ink/[0.12] pt-[22px]">
-                <span className="flex h-[38px] w-[38px] items-center justify-center rounded-full bg-[#2C5468] text-[13px] text-mist">
-                  {featured.initials}
-                </span>
+                                <span className="flex h-[38px] w-[38px] items-center justify-center rounded-full bg-[#2C5468] text-[13px] text-mist">
+                                    {featured.initials}
+                                </span>
                                 <span className="text-[15px]">{featured.author}</span>
                                 <span className="ml-auto text-right font-mono text-[10px] tracking-[0.1em] text-dropdown-sub">
-                  {featured.readTime.toUpperCase()}
+                                    {featured.readTime.toUpperCase()}
                                     <br />
                                     {featured.date.toUpperCase()}
-                </span>
+                                </span>
                             </div>
                         </div>
                     </Reveal>
@@ -151,47 +151,47 @@ export function BlogDirectory({ posts }: { posts: BlogPost[] }) {
                 <Reveal className="mb-[22px] flex items-baseline justify-between gap-6">
                     <h2 className="text-[26px] font-medium tracking-[-0.02em]">All articles</h2>
                     <span className="font-mono text-[11px] tracking-[0.12em] text-dropdown-sub">
-            {filtered.length === posts.length
-                ? `${posts.length} ARTICLES`
-                : `${filtered.length} OF ${posts.length} ARTICLES`}
-          </span>
+                        {filtered.length === posts.length
+                            ? `${posts.length} ARTICLES`
+                            : `${filtered.length} OF ${posts.length} ARTICLES`}
+                    </span>
                 </Reveal>
                 <div className="grid grid-cols-3 gap-4">
                     {filtered.map((post) => (
                         <Link
                             key={post.slug}
                             href={`/resources/blogs/${post.slug}`}
-                            onClick={() => trackEvent("nav_click", post.title, "blog_article_list")}
+                            onClick={() => trackEvent("blog_post_card_press")}
                             className="flex flex-col border border-ink/[0.13] bg-white text-ink hover:border-accent/60 cursor-pointer"
                         >
                             <PostThumb src={post.image} />
                             <div className="flex flex-1 flex-col gap-3 px-[22px] pb-6 pt-[22px]">
-                <span className="font-mono text-[10px] tracking-[0.14em] text-link">
-                  {post.category.toUpperCase()}
-                </span>
+                                <span className="font-mono text-[10px] tracking-[0.14em] text-link">
+                                    {post.category.toUpperCase()}
+                                </span>
                                 <span className="text-xl font-medium leading-[1.22] tracking-[-0.015em]">
-                  {post.title}
-                </span>
+                                    {post.title}
+                                </span>
                                 <span className="text-[15px] leading-[1.6] text-ink-soft">{post.summary}</span>
                                 <span className="mt-0.5 flex flex-wrap gap-1.5">
-                  {post.tags.map((tag) => (
-                      <span
-                          key={tag}
-                          className="border border-ink/10 bg-[#F1F4F6] px-2.5 py-1.5 text-[11px] text-ink-soft"
-                      >
-                      {tag}
-                    </span>
-                  ))}
-                </span>
+                                    {post.tags.map((tag) => (
+                                        <span
+                                            key={tag}
+                                            className="border border-ink/10 bg-[#F1F4F6] px-2.5 py-1.5 text-[11px] text-ink-soft"
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </span>
                                 <span className="mt-auto flex items-center gap-2.5 border-t border-ink/10 pt-4">
-                  <span className="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#2C5468] text-[11px] text-mist">
-                    {post.initials}
-                  </span>
-                  <span className="min-w-0 text-sm">{post.author}</span>
-                  <span className="ml-auto whitespace-nowrap font-mono text-[10px] text-dropdown-sub">
-                    {post.readTime.toUpperCase()}
-                  </span>
-                </span>
+                                    <span className="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#2C5468] text-[11px] text-mist">
+                                        {post.initials}
+                                    </span>
+                                    <span className="min-w-0 text-sm">{post.author}</span>
+                                    <span className="ml-auto whitespace-nowrap font-mono text-[10px] text-dropdown-sub">
+                                        {post.readTime.toUpperCase()}
+                                    </span>
+                                </span>
                             </div>
                         </Link>
                     ))}
@@ -221,7 +221,7 @@ export function BlogDirectory({ posts }: { posts: BlogPost[] }) {
                     </div>
                     <Link
                         href="/resources/guides"
-                        onClick={() => trackEvent("nav_click", "Browse the guides", "blog_directory_guides_banner")}
+                        onClick={() => trackEvent("blog_browse_guides_press")}
                         className="whitespace-nowrap bg-accent px-[30px] py-[15px] text-base text-ink hover:bg-[#3FBEDD] cursor-pointer"
                     >
                         Browse the guides
