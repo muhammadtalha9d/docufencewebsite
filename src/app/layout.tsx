@@ -34,6 +34,20 @@ export default function RootLayout({
     return (
         <html lang="en" className={`${archivo.variable} ${jetbrainsMono.variable}`}>
         <body className="min-h-full bg-paper font-sans text-ink antialiased overflow-x-hidden">
+        {/* Google Analytics (gtag.js) */}
+        <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-WHY482S44G"
+            strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-WHY482S44G');
+            `}
+        </Script>
+
         {/* Google Tag Manager Container Script */}
         <Script
             id="gtm-script"
