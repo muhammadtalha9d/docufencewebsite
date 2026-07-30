@@ -28,7 +28,7 @@ export function Hero() {
                     </p>
                     <div className="flex items-center gap-3.5">
                         <Link
-                            href="https://dev-app.docufence.com/signup"
+                            href="https://dashboard.docufence.com/"
                             className="whitespace-nowrap bg-ink px-8 py-4 text-[15px] text-paper hover:bg-black cursor-pointer"
                             onClick={() => trackEvent("hero_signup_press")}
                         >

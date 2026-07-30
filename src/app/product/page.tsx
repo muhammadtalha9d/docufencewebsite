@@ -395,7 +395,7 @@ export default function ProductPage() {
                     </Reveal>
                     <Reveal className="flex justify-center gap-3.5">
                         <Link
-                            href="https://dev-app.docufence.com/signup"
+                            href="https://dashboard.docufence.com/"
                             onClick={() => trackEvent("product_bottom_signup_press")}
                             className="bg-paper px-8 py-[15px] text-[15px] text-ink hover:bg-white cursor-pointer"
                         >

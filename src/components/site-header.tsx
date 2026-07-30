@@ -135,7 +135,7 @@ export function SiteHeader() {
                 {/* Action Buttons */}
                 <div className="flex flex-shrink-0 items-center gap-4 whitespace-nowrap">
                     <Link
-                        href="https://dev-app.docufence.com/signup"
+                        href="https://dashboard.docufence.com/"
                         className="text-[15px] text-ink-soft hover:text-ink cursor-pointer"
                         onClick={() => trackEvent("header_signup_press")}
                     >

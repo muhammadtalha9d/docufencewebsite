@@ -109,7 +109,7 @@ export function UseCasePage({ data }: { data: UseCaseData }) {
                                         Book a Call
                                     </Link>
                                     <Link
-                                        href="https://dev-app.docufence.com/signup"
+                                        href="https://dashboard.docufence.com/"
                                         onClick={() => trackEvent("usecase_hero_signup_press")}
                                         className="whitespace-nowrap border border-ink/[0.22] px-[26px] py-4 text-base text-ink hover:border-ink/55 cursor-pointer"
                                     >
@@ -223,7 +223,7 @@ export function UseCasePage({ data }: { data: UseCaseData }) {
                             {data.docsSubcopy}
                         </p>
                         <Link
-                            href="https://dev-app.docufence.com/signup"
+                            href="https://dashboard.docufence.com/"
                             onClick={() => trackEvent("usecase_docs_explore_press")}
                             className="inline-flex items-center gap-2.5 border border-ink/[0.22] px-[22px] py-3.5 text-[15px] text-ink hover:border-ink/55 cursor-pointer"
                         >
@@ -543,7 +543,7 @@ export function UseCasePage({ data }: { data: UseCaseData }) {
                                 Book a Call
                             </Link>
                             <Link
-                                href="https://dev-app.docufence.com/signup"
+                                href="https://dashboard.docufence.com/"
                                 onClick={() => trackEvent("usecase_mid_signup_press")}
                                 className="whitespace-nowrap border-b border-mist/40 pb-[3px] text-base text-mist hover:text-accent cursor-pointer"
                             >
@@ -645,7 +645,7 @@ export function UseCasePage({ data }: { data: UseCaseData }) {
                                 Book a Call
                             </Link>
                             <Link
-                                href="https://dev-app.docufence.com/signup"
+                                href="https://dashboard.docufence.com/"
                                 onClick={() => trackEvent("usecase_footer_signup_press")}
                                 className="border-b border-mist/40 pb-[3px] text-base text-mist hover:text-accent cursor-pointer"
                             >
